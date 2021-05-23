@@ -1,0 +1,10 @@
+freemaster_protocol.c:76:12:FMSTR_Init	16	static
+freemaster_protocol.c:169:6:FMSTR_Poll	8	static
+freemaster_protocol.c:193:6:FMSTR_SendResponse	24	static
+freemaster_protocol.c:216:12:FMSTR_ProtocolDecoder	40	static
+freemaster_protocol.c:374:12:FMSTR_SendTestFrame	16	static
+freemaster_protocol.c:392:12:_FMSTR_GetBoardConfig	40	static
+freemaster_protocol.c:483:19:_FMSTR_GetAccessPassword	24	static
+freemaster_protocol.c:650:12:_FMSTR_ReadMem	32	static
+freemaster_protocol.c:703:12:_FMSTR_ReadMemBaseAddress	32	static
+freemaster_protocol.c:758:12:_FMSTR_WriteMem	40	static

@@ -1,0 +1,9 @@
+fsl_adc_etc.h:288:20:ADC_ETC_DoSoftwareReset	16	static
+fsl_adc_etc.c:66:6:ADC_ETC_Init	24	static
+fsl_adc_etc.c:110:6:ADC_ETC_Deinit	16	static
+fsl_adc_etc.c:138:6:ADC_ETC_GetDefaultConfig	16	static
+fsl_adc_etc.c:162:6:ADC_ETC_SetTriggerConfig	32	static
+fsl_adc_etc.c:198:6:ADC_ETC_SetTriggerChainConfig	40	static
+fsl_adc_etc.c:303:10:ADC_ETC_GetInterruptStatusFlags	24	static
+fsl_adc_etc.c:344:6:ADC_ETC_ClearInterruptStatusFlags	24	static
+fsl_adc_etc.c:380:10:ADC_ETC_GetADCConversionValue	32	static

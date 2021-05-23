@@ -1,0 +1,7 @@
+core_cm7.h:1902:22:__NVIC_EnableIRQ	16	static
+core_cm7.h:2032:22:__NVIC_SetPriority	16	static
+fsl_common.h:747:28:EnableIRQ	24	static
+fsl_adc.h:355:20:ADC_EnableHardwareTrigger	16	static
+ADCbib.c:21:6:ADC_Config	24	static
+ADCbib.c:71:6:ADC_ETC_Config	64	static
+ADCbib.c:148:6:ADC_ETC_IRQ0_IRQHandler	8	static

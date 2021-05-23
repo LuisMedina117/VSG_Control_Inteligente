@@ -1,0 +1,5 @@
+core_cm7.h:1902:22:__NVIC_EnableIRQ	16	static
+fsl_common.h:747:28:EnableIRQ	24	static
+peripherals.c:130:13:LPUART1_init	8	static
+peripherals.c:140:6:BOARD_InitPeripherals	8	static
+peripherals.c:149:6:BOARD_InitBootPeripherals	8	static

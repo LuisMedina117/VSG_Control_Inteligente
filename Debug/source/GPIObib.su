@@ -1,0 +1,11 @@
+core_cm7.h:1902:22:__NVIC_EnableIRQ	16	static
+core_cm7.h:2032:22:__NVIC_SetPriority	16	static
+fsl_common.h:747:28:EnableIRQ	24	static
+fsl_gpio.h:160:20:GPIO_PortToggle	16	static
+fsl_gpio.h:253:20:GPIO_PortEnableInterrupts	16	static
+fsl_gpio.h:318:20:GPIO_PortClearInterruptFlags	16	static
+GPIObib.c:19:6:GPIO_Config	16	static
+GPIObib.c:40:6:GPIO5_Combined_0_15_IRQHandler	8	static
+GPIObib.c:52:6:EnciendeLED	8	static
+GPIObib.c:57:6:ApagaLED	8	static
+GPIObib.c:62:6:ConmutaLED	8	static

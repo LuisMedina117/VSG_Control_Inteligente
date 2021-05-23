@@ -1,0 +1,5 @@
+ProMed.c:48:6:ActualizaCU	24	static
+ProMed.c:122:6:calculaDQ	24	static
+ProMed.c:177:9:seno_LookUp	24	static
+ProMed.c:231:7:satura	16	static
+ProMed.c:242:6:Filtro_variables	4	static

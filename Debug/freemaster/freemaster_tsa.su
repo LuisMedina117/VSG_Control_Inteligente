@@ -1,0 +1,13 @@
+freemaster_private.h:63:25:FMSTR_ADDR_VALID_Func	16	static
+freemaster_private.h:73:25:FMSTR_CAST_PTR_TO_ADDR_Func	16	static
+freemaster_private.h:83:20:FMSTR_CAST_ADDR_TO_PTR_Func	16	static
+freemaster_tsa.c:53:12:FMSTR_InitTsa	4	static
+freemaster_tsa.c:70:12:FMSTR_SetUpTsaBuff	24	static
+freemaster_tsa.c:98:1:FMSTR_TsaGetTable_dynamic_tsa	16	static
+freemaster_tsa.c:114:12:FMSTR_TsaAddVar	40	static
+freemaster_tsa.c:185:12:FMSTR_GetTsaInfo	48	static
+freemaster_tsa.c:251:12:FMSTR_GetStringLen	32	static
+freemaster_tsa.c:293:19:FMSTR_CheckMemSpace	32	static
+freemaster_tsa.c:326:12:FMSTR_CheckTsaSpace	56	static
+freemaster_tsa.c:449:19:_FMSTR_IsMemoryMapped	16	static
+freemaster_tsa.c:463:24:FMSTR_FindUresInTsa	32	static

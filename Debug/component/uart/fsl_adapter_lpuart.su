@@ -1,0 +1,7 @@
+fsl_adapter_lpuart.c:143:26:HAL_UartGetStatus	24	static
+fsl_adapter_lpuart.c:314:19:HAL_UartInit	48	static
+fsl_adapter_lpuart.c:396:19:HAL_UartDeinit	24	static
+fsl_adapter_lpuart.c:417:19:HAL_UartReceiveBlocking	32	static
+fsl_adapter_lpuart.c:432:19:HAL_UartSendBlocking	32	static
+fsl_adapter_lpuart.c:447:19:HAL_UartEnterLowpower	16	static
+fsl_adapter_lpuart.c:454:19:HAL_UartExitLowpower	16	static
