@@ -59,7 +59,7 @@ struct VSG_VariablesEstado vsg_ve = {
 	.pm 		=	0,		// Potencia mecánica inicial, 0pu
 	.pm_prev	=	0,
 	.xe			=	1.0f,	// Tensión inicial, 1pu
-	.estado = Sincronizacion // Inicializa en modo de sincronización
+	.estado = Emulando // Inicializa en modo de sincronización
 };
 // Estructura de entradas y parámetros del generador
 struct VSG_Entradas vsg_en = {
@@ -147,7 +147,7 @@ void LazoCorriente(void){
 	vIqr = CI_kp*errorIq + lazo_I.aIq;
 	// Términos de prealimentación (feedforward) y desacoplamiento
 	vIqr += var_dq.vCq + var_dq.iFd*param_lF*vsg_ve.w;
-
+/*
 	// Verifica saturación ---------------------------------------
 	temp = sqrtf(vIdr*vIdr + vIqr*vIqr);
 	if (temp >= bateria.vcd)
@@ -175,7 +175,7 @@ void LazoCorriente(void){
 		vIr.fase = temp-300.0f;
 	else
 		vIr.fase = temp+3300.0f;
-
+*/
 	// Ponte pin GPIO en bajo
 	GPIO_PinWrite(GPIOmed1, PINmed1, 0U);
 }
@@ -204,7 +204,7 @@ void LazoTension(){
 	iFqr = CV_kp*errorVq + lazo_V.aIq;
 	// Términos de prealimentación (feedforward) y desacoplamiento
 	iFqr += var_dq.iGq + var_dq.vCd*param_cF*vsg_ve.w;
-
+/*
 	// Verifica saturación ---------------------------------------
 	temp1 = sqrtf(iFdr*iFdr + iFqr*iFqr);
 	if (temp1 >= var_prot.lim_iF)
@@ -214,7 +214,7 @@ void LazoTension(){
 	// Reduce proporcionalmente las componentes
 	lazo_I.iFdr = iFdr*temp2/temp1;
 	lazo_I.iFqr = iFqr*temp2/temp1;
-
+*/
 	// Actualiza acción integral con backtracking ----------------
 	lazo_V.aId = lazo_V.aId + CV_kih*errorVd + CV_htr*( lazo_I.iFdr - iFdr );
 	lazo_V.aIq = lazo_V.aIq + CV_kih*errorVq + CV_htr*( lazo_I.iFqr - iFqr );
@@ -304,7 +304,7 @@ void ModeloGenerador(void* param){
 		// Td = D(w-wf)
 		temp2 = vsg_en.D*(vsg_ve.w_prev-vsg_ve.xw_prev);
 		// w = wprev + (Ta-Td)/(2/h*H)
-		vsg_ve.w = vsg_ve.w_prev + (temp1-temp2)/(dos_h*vsg_en.H);
+		//vsg_ve.w = vsg_ve.w_prev + (temp1-temp2)/(dos_h*vsg_en.H); // Se desactiva el control sobre w
 
 	// Control de velocidad --------------------------
 		// errw = BM(wref-w)

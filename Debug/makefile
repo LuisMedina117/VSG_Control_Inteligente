@@ -36,25 +36,25 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: VSG_control.axf
+all: VSG_Control.axf
 
 # Tool invocations
-VSG_control.axf: $(OBJS) $(USER_OBJS)
+VSG_Control.axf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU Linker'
-	arm-none-eabi-gcc -nostdlib -Xlinker -Map="VSG_control.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m7 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T MIMXRT1062_Project_Debug.ld -o "VSG_control.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -nostdlib -Xlinker -Map="VSG_Control.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m7 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T MIMXRT1062_Project_Debug.ld -o "VSG_Control.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
 
 # Other Targets
 clean:
-	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) VSG_control.axf
+	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) VSG_Control.axf
 	-@echo ' '
 
 post-build:
 	-@echo 'Performing post-build steps'
-	-arm-none-eabi-size "VSG_control.axf"; # arm-none-eabi-objcopy -v -O binary "VSG_control.axf" "VSG_control.bin" ; # checksum -p MIMXRT1062xxxxA -d "VSG_control.bin";
+	-arm-none-eabi-size "VSG_Control.axf"; # arm-none-eabi-objcopy -v -O binary "VSG_Control.axf" "VSG_Control.bin" ; # checksum -p MIMXRT1062xxxxA -d "VSG_Control.bin";
 	-@echo ' '
 
 .PHONY: all clean dependents post-build

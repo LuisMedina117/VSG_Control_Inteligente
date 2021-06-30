@@ -1,5 +1,5 @@
-Control.c:132:6:LazoCorriente	32	static
-Control.c:185:6:LazoTension	32	static
+Control.c:132:6:LazoCorriente	24	static
+Control.c:185:6:LazoTension	24	static
 Control.c:245:6:Acondicionamiento	16	static
 Control.c:285:6:ModeloGenerador	40	static
 Control.c:369:6:Reinicia_Control	8	static
