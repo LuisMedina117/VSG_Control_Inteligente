@@ -309,12 +309,12 @@ void BOARD_InitPins(void) {
 	// Configuración de pines para ADC -------------------------------------------------------------
 	uint32_t config_ADC =
 		IOMUXC_SW_PAD_CTL_PAD_SRE(0U)	|	// Slew Rate: Slow
-		IOMUXC_SW_PAD_CTL_PAD_DSE(0U)	|	// Drive Stregnth: Deshabilitado (antes R0/6)
+		IOMUXC_SW_PAD_CTL_PAD_DSE(6U)	|	// Drive Stregnth: Deshabilitado (antes R0/6)
 		IOMUXC_SW_PAD_CTL_PAD_SPEED(2U)	|	// Speed: Medium (100MHz)
 		IOMUXC_SW_PAD_CTL_PAD_ODE(0U)	|	// Open Drain: Deshabilitado
-		IOMUXC_SW_PAD_CTL_PAD_PKE(1U)	|	// Pull/Keeper Enable: Habilitado (Antes deshabilitado)
-		IOMUXC_SW_PAD_CTL_PAD_PUE(1U)	|	// Pull/Keeper Select: Pull (Antes keeper)
-		IOMUXC_SW_PAD_CTL_PAD_PUS(2U)	|	// Pull Up/Down Config: 100k Ohm Pull Up (Antes Pull Down)
+		IOMUXC_SW_PAD_CTL_PAD_PKE(0U)	|	// Pull/Keeper Enable: Deshabilitado
+		IOMUXC_SW_PAD_CTL_PAD_PUE(0U)	|	// Pull/Keeper Select: Keeper
+		IOMUXC_SW_PAD_CTL_PAD_PUS(0U)	|	// Pull Up/Down Config: 100k Ohm Pull Down
 		IOMUXC_SW_PAD_CTL_PAD_HYS(0U);		// Hysteresis Enable: Deshabilitado
 	IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_10_GPIO1_IO26, 0U);	// ----- [ADC1, canal 15] {A0}
 	IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B1_10_GPIO1_IO26, config_ADC);

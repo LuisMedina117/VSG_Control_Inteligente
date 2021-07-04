@@ -4280,7 +4280,7 @@ END GROUP
                 0x00002000                . = 0x2000
  *fill*         0x60001030      0xfd0 ff
 
-.text           0x60002000     0xfed8
+.text           0x60002000     0xfed4
  FILL mask 0xff
                 0x60002000                __vectors_start__ = ABSOLUTE (.)
  *(SORT_BY_ALIGNMENT(.isr_vector))
@@ -4290,19 +4290,19 @@ END GROUP
                 0x600022b8                . = ALIGN (0x4)
                 0x600022b8                __section_table_start = .
                 0x600022b8                __data_section_table = .
-                0x600022b8        0x4 LONG 0x60011ed8 LOADADDR (.data)
+                0x600022b8        0x4 LONG 0x60011ed4 LOADADDR (.data)
                 0x600022bc        0x4 LONG 0x20000000 ADDR (.data)
                 0x600022c0        0x4 LONG 0x70 SIZEOF (.data)
-                0x600022c4        0x4 LONG 0x60011ed8 LOADADDR (.data_RAM2)
+                0x600022c4        0x4 LONG 0x60011ed4 LOADADDR (.data_RAM2)
                 0x600022c8        0x4 LONG 0x0 ADDR (.data_RAM2)
                 0x600022cc        0x4 LONG 0x0 SIZEOF (.data_RAM2)
-                0x600022d0        0x4 LONG 0x60011ed8 LOADADDR (.data_RAM3)
+                0x600022d0        0x4 LONG 0x60011ed4 LOADADDR (.data_RAM3)
                 0x600022d4        0x4 LONG 0x20200000 ADDR (.data_RAM3)
                 0x600022d8        0x4 LONG 0x0 SIZEOF (.data_RAM3)
-                0x600022dc        0x4 LONG 0x60011ed8 LOADADDR (.data_RAM4)
+                0x600022dc        0x4 LONG 0x60011ed4 LOADADDR (.data_RAM4)
                 0x600022e0        0x4 LONG 0x80000000 ADDR (.data_RAM4)
                 0x600022e4        0x4 LONG 0x0 SIZEOF (.data_RAM4)
-                0x600022e8        0x4 LONG 0x60011ed8 LOADADDR (.data_RAM5)
+                0x600022e8        0x4 LONG 0x60011ed4 LOADADDR (.data_RAM5)
                 0x600022ec        0x4 LONG 0x81e00000 ADDR (.data_RAM5)
                 0x600022f0        0x4 LONG 0x0 SIZEOF (.data_RAM5)
                 0x600022f4                __data_section_table_end = .
@@ -5024,1176 +5024,1176 @@ END GROUP
  .text.CLOCK_ControlGate
                 0x6000b168       0x64 ./board/pin_mux.o
  .text.BOARD_InitPins
-                0x6000b1cc      0x410 ./board/pin_mux.o
+                0x6000b1cc      0x40c ./board/pin_mux.o
                 0x6000b1cc                BOARD_InitPins
  .text.BOARD_InitDEBUG_UART
-                0x6000b5dc       0x78 ./board/pin_mux.o
-                0x6000b5dc                BOARD_InitDEBUG_UART
+                0x6000b5d8       0x78 ./board/pin_mux.o
+                0x6000b5d8                BOARD_InitDEBUG_UART
  .text.__assertion_failed
-                0x6000b654       0x4c c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(_cr_assert.o)
-                0x6000b654                __assertion_failed
+                0x6000b650       0x4c c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(_cr_assert.o)
+                0x6000b650                __assertion_failed
  .text.__sys_appexit
-                0x6000b6a0        0xc c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(__sys_appexit.o)
-                0x6000b6a0                __sys_appexit
-                0x6000b6a0                __exit
+                0x6000b69c        0xc c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(__sys_appexit.o)
+                0x6000b69c                __sys_appexit
+                0x6000b69c                __exit
  .text._Cwritebuf
-                0x6000b6ac       0x6c c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(_writebuf.o)
-                0x6000b6ac                _Cwritebuf
- .text.malloc   0x6000b718       0xc8 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(alloc.o)
-                0x6000b718                malloc
+                0x6000b6a8       0x6c c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(_writebuf.o)
+                0x6000b6a8                _Cwritebuf
+ .text.malloc   0x6000b714       0xc8 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(alloc.o)
+                0x6000b714                malloc
  .text._Csys_alloc
-                0x6000b7e0       0x20 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(alloc.o)
-                0x6000b7e0                _Csys_alloc
- .text.fseek    0x6000b800      0x100 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(fseek.o)
-                0x6000b800                fseek
- .text.ftell    0x6000b900       0x44 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(ftell.o)
-                0x6000b900                ftell
- .text._initio  0x6000b944       0x78 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(initio.o)
-                0x6000b944                _initio
- .text._sbrk    0x6000b9bc       0x3c c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(_cr_sbrk.o)
-                0x6000b9bc                _sbrk
- .text.fflush   0x6000b9f8       0x44 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(fflush.o)
-                0x6000b9f8                fflush
+                0x6000b7dc       0x20 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(alloc.o)
+                0x6000b7dc                _Csys_alloc
+ .text.fseek    0x6000b7fc      0x100 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(fseek.o)
+                0x6000b7fc                fseek
+ .text.ftell    0x6000b8fc       0x44 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(ftell.o)
+                0x6000b8fc                ftell
+ .text._initio  0x6000b940       0x78 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(initio.o)
+                0x6000b940                _initio
+ .text._sbrk    0x6000b9b8       0x3c c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(_cr_sbrk.o)
+                0x6000b9b8                _sbrk
+ .text.fflush   0x6000b9f4       0x44 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(fflush.o)
+                0x6000b9f4                fflush
  .text.__check_heap_overflow
-                0x6000ba3c       0x18 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(_cr_check_heap.o)
-                0x6000ba3c                __check_heap_overflow
+                0x6000ba38       0x18 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(_cr_check_heap.o)
+                0x6000ba38                __check_heap_overflow
  .text.__aeabi_dmul
-                0x6000ba54      0x114 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(double.o)
-                0x6000ba54                __aeabi_dmul
+                0x6000ba50      0x114 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(double.o)
+                0x6000ba50                __aeabi_dmul
  .text.__aeabi_d2f
-                0x6000bb68       0x58 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(double.o)
-                0x6000bb68                __aeabi_d2f
+                0x6000bb64       0x58 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(double.o)
+                0x6000bb64                __aeabi_d2f
  .text.__aeabi_f2d
-                0x6000bbc0       0x38 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(float.o)
-                0x6000bbc0                __aeabi_f2d
+                0x6000bbbc       0x38 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(float.o)
+                0x6000bbbc                __aeabi_f2d
  .text.DMA0_DMA16_IRQHandler
-                0x6000bbf8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bbf8                DMA0_DMA16_IRQHandler
+                0x6000bbf4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bbf4                DMA0_DMA16_IRQHandler
  .text.DMA1_DMA17_IRQHandler
-                0x6000bc00        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc00                DMA1_DMA17_IRQHandler
+                0x6000bbfc        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bbfc                DMA1_DMA17_IRQHandler
  .text.DMA2_DMA18_IRQHandler
-                0x6000bc08        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc08                DMA2_DMA18_IRQHandler
+                0x6000bc04        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc04                DMA2_DMA18_IRQHandler
  .text.DMA3_DMA19_IRQHandler
-                0x6000bc10        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc10                DMA3_DMA19_IRQHandler
+                0x6000bc0c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc0c                DMA3_DMA19_IRQHandler
  .text.DMA4_DMA20_IRQHandler
-                0x6000bc18        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc18                DMA4_DMA20_IRQHandler
+                0x6000bc14        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc14                DMA4_DMA20_IRQHandler
  .text.DMA5_DMA21_IRQHandler
-                0x6000bc20        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc20                DMA5_DMA21_IRQHandler
+                0x6000bc1c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc1c                DMA5_DMA21_IRQHandler
  .text.DMA6_DMA22_IRQHandler
-                0x6000bc28        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc28                DMA6_DMA22_IRQHandler
+                0x6000bc24        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc24                DMA6_DMA22_IRQHandler
  .text.DMA7_DMA23_IRQHandler
-                0x6000bc30        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc30                DMA7_DMA23_IRQHandler
+                0x6000bc2c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc2c                DMA7_DMA23_IRQHandler
  .text.DMA8_DMA24_IRQHandler
-                0x6000bc38        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc38                DMA8_DMA24_IRQHandler
+                0x6000bc34        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc34                DMA8_DMA24_IRQHandler
  .text.DMA9_DMA25_IRQHandler
-                0x6000bc40        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc40                DMA9_DMA25_IRQHandler
+                0x6000bc3c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc3c                DMA9_DMA25_IRQHandler
  .text.DMA10_DMA26_IRQHandler
-                0x6000bc48        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc48                DMA10_DMA26_IRQHandler
+                0x6000bc44        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc44                DMA10_DMA26_IRQHandler
  .text.DMA11_DMA27_IRQHandler
-                0x6000bc50        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc50                DMA11_DMA27_IRQHandler
+                0x6000bc4c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc4c                DMA11_DMA27_IRQHandler
  .text.DMA12_DMA28_IRQHandler
-                0x6000bc58        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc58                DMA12_DMA28_IRQHandler
+                0x6000bc54        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc54                DMA12_DMA28_IRQHandler
  .text.DMA13_DMA29_IRQHandler
-                0x6000bc60        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc60                DMA13_DMA29_IRQHandler
+                0x6000bc5c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc5c                DMA13_DMA29_IRQHandler
  .text.DMA14_DMA30_IRQHandler
-                0x6000bc68        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc68                DMA14_DMA30_IRQHandler
+                0x6000bc64        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc64                DMA14_DMA30_IRQHandler
  .text.DMA15_DMA31_IRQHandler
-                0x6000bc70        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc70                DMA15_DMA31_IRQHandler
+                0x6000bc6c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc6c                DMA15_DMA31_IRQHandler
  .text.DMA_ERROR_IRQHandler
-                0x6000bc78        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc78                DMA_ERROR_IRQHandler
+                0x6000bc74        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc74                DMA_ERROR_IRQHandler
  .text.CTI0_ERROR_IRQHandler
-                0x6000bc80        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc80                CTI0_ERROR_IRQHandler
+                0x6000bc7c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc7c                CTI0_ERROR_IRQHandler
  .text.CTI1_ERROR_IRQHandler
-                0x6000bc88        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc88                CTI1_ERROR_IRQHandler
+                0x6000bc84        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc84                CTI1_ERROR_IRQHandler
  .text.CORE_IRQHandler
-                0x6000bc90        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc90                CORE_IRQHandler
+                0x6000bc8c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc8c                CORE_IRQHandler
  .text.LPUART2_IRQHandler
-                0x6000bc98        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bc98                LPUART2_IRQHandler
+                0x6000bc94        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc94                LPUART2_IRQHandler
  .text.LPUART3_IRQHandler
-                0x6000bca0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bca0                LPUART3_IRQHandler
+                0x6000bc9c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bc9c                LPUART3_IRQHandler
  .text.LPUART4_IRQHandler
-                0x6000bca8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bca8                LPUART4_IRQHandler
+                0x6000bca4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bca4                LPUART4_IRQHandler
  .text.LPUART5_IRQHandler
-                0x6000bcb0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bcb0                LPUART5_IRQHandler
+                0x6000bcac        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bcac                LPUART5_IRQHandler
  .text.LPUART6_IRQHandler
-                0x6000bcb8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bcb8                LPUART6_IRQHandler
+                0x6000bcb4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bcb4                LPUART6_IRQHandler
  .text.LPUART7_IRQHandler
-                0x6000bcc0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bcc0                LPUART7_IRQHandler
+                0x6000bcbc        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bcbc                LPUART7_IRQHandler
  .text.LPUART8_IRQHandler
-                0x6000bcc8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bcc8                LPUART8_IRQHandler
+                0x6000bcc4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bcc4                LPUART8_IRQHandler
  .text.LPI2C1_IRQHandler
-                0x6000bcd0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bcd0                LPI2C1_IRQHandler
+                0x6000bccc        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bccc                LPI2C1_IRQHandler
  .text.LPI2C2_IRQHandler
-                0x6000bcd8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bcd8                LPI2C2_IRQHandler
+                0x6000bcd4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bcd4                LPI2C2_IRQHandler
  .text.LPI2C3_IRQHandler
-                0x6000bce0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bce0                LPI2C3_IRQHandler
+                0x6000bcdc        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bcdc                LPI2C3_IRQHandler
  .text.LPI2C4_IRQHandler
-                0x6000bce8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bce8                LPI2C4_IRQHandler
+                0x6000bce4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bce4                LPI2C4_IRQHandler
  .text.LPSPI1_IRQHandler
-                0x6000bcf0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bcf0                LPSPI1_IRQHandler
+                0x6000bcec        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bcec                LPSPI1_IRQHandler
  .text.LPSPI2_IRQHandler
-                0x6000bcf8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bcf8                LPSPI2_IRQHandler
+                0x6000bcf4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bcf4                LPSPI2_IRQHandler
  .text.LPSPI3_IRQHandler
-                0x6000bd00        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd00                LPSPI3_IRQHandler
+                0x6000bcfc        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bcfc                LPSPI3_IRQHandler
  .text.LPSPI4_IRQHandler
-                0x6000bd08        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd08                LPSPI4_IRQHandler
+                0x6000bd04        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd04                LPSPI4_IRQHandler
  .text.CAN1_IRQHandler
-                0x6000bd10        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd10                CAN1_IRQHandler
+                0x6000bd0c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd0c                CAN1_IRQHandler
  .text.CAN2_IRQHandler
-                0x6000bd18        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd18                CAN2_IRQHandler
+                0x6000bd14        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd14                CAN2_IRQHandler
  .text.FLEXRAM_IRQHandler
-                0x6000bd20        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd20                FLEXRAM_IRQHandler
+                0x6000bd1c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd1c                FLEXRAM_IRQHandler
  .text.KPP_IRQHandler
-                0x6000bd28        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd28                KPP_IRQHandler
+                0x6000bd24        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd24                KPP_IRQHandler
  .text.TSC_DIG_IRQHandler
-                0x6000bd30        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd30                TSC_DIG_IRQHandler
+                0x6000bd2c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd2c                TSC_DIG_IRQHandler
  .text.GPR_IRQ_IRQHandler
-                0x6000bd38        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd38                GPR_IRQ_IRQHandler
+                0x6000bd34        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd34                GPR_IRQ_IRQHandler
  .text.LCDIF_IRQHandler
-                0x6000bd40        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd40                LCDIF_IRQHandler
+                0x6000bd3c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd3c                LCDIF_IRQHandler
  .text.CSI_IRQHandler
-                0x6000bd48        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd48                CSI_IRQHandler
+                0x6000bd44        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd44                CSI_IRQHandler
  .text.PXP_IRQHandler
-                0x6000bd50        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd50                PXP_IRQHandler
+                0x6000bd4c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd4c                PXP_IRQHandler
  .text.WDOG2_IRQHandler
-                0x6000bd58        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd58                WDOG2_IRQHandler
+                0x6000bd54        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd54                WDOG2_IRQHandler
  .text.SNVS_HP_WRAPPER_IRQHandler
-                0x6000bd60        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd60                SNVS_HP_WRAPPER_IRQHandler
+                0x6000bd5c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd5c                SNVS_HP_WRAPPER_IRQHandler
  .text.SNVS_HP_WRAPPER_TZ_IRQHandler
-                0x6000bd68        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd68                SNVS_HP_WRAPPER_TZ_IRQHandler
+                0x6000bd64        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd64                SNVS_HP_WRAPPER_TZ_IRQHandler
  .text.SNVS_LP_WRAPPER_IRQHandler
-                0x6000bd70        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd70                SNVS_LP_WRAPPER_IRQHandler
+                0x6000bd6c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd6c                SNVS_LP_WRAPPER_IRQHandler
  .text.CSU_IRQHandler
-                0x6000bd78        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd78                CSU_IRQHandler
+                0x6000bd74        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd74                CSU_IRQHandler
  .text.DCP_IRQHandler
-                0x6000bd80        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd80                DCP_IRQHandler
+                0x6000bd7c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd7c                DCP_IRQHandler
  .text.DCP_VMI_IRQHandler
-                0x6000bd88        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd88                DCP_VMI_IRQHandler
+                0x6000bd84        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd84                DCP_VMI_IRQHandler
  .text.Reserved68_IRQHandler
-                0x6000bd90        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd90                Reserved68_IRQHandler
+                0x6000bd8c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd8c                Reserved68_IRQHandler
  .text.TRNG_IRQHandler
-                0x6000bd98        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bd98                TRNG_IRQHandler
+                0x6000bd94        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd94                TRNG_IRQHandler
  .text.SJC_IRQHandler
-                0x6000bda0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bda0                SJC_IRQHandler
+                0x6000bd9c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bd9c                SJC_IRQHandler
  .text.BEE_IRQHandler
-                0x6000bda8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bda8                BEE_IRQHandler
+                0x6000bda4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bda4                BEE_IRQHandler
  .text.SAI1_IRQHandler
-                0x6000bdb0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bdb0                SAI1_IRQHandler
+                0x6000bdac        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bdac                SAI1_IRQHandler
  .text.SAI2_IRQHandler
-                0x6000bdb8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bdb8                SAI2_IRQHandler
+                0x6000bdb4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bdb4                SAI2_IRQHandler
  .text.SAI3_RX_IRQHandler
-                0x6000bdc0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bdc0                SAI3_RX_IRQHandler
+                0x6000bdbc        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bdbc                SAI3_RX_IRQHandler
  .text.SAI3_TX_IRQHandler
-                0x6000bdc8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bdc8                SAI3_TX_IRQHandler
+                0x6000bdc4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bdc4                SAI3_TX_IRQHandler
  .text.SPDIF_IRQHandler
-                0x6000bdd0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bdd0                SPDIF_IRQHandler
+                0x6000bdcc        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bdcc                SPDIF_IRQHandler
  .text.PMU_EVENT_IRQHandler
-                0x6000bdd8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bdd8                PMU_EVENT_IRQHandler
+                0x6000bdd4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bdd4                PMU_EVENT_IRQHandler
  .text.Reserved78_IRQHandler
-                0x6000bde0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bde0                Reserved78_IRQHandler
+                0x6000bddc        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bddc                Reserved78_IRQHandler
  .text.TEMP_LOW_HIGH_IRQHandler
-                0x6000bde8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bde8                TEMP_LOW_HIGH_IRQHandler
+                0x6000bde4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bde4                TEMP_LOW_HIGH_IRQHandler
  .text.TEMP_PANIC_IRQHandler
-                0x6000bdf0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bdf0                TEMP_PANIC_IRQHandler
+                0x6000bdec        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bdec                TEMP_PANIC_IRQHandler
  .text.USB_PHY1_IRQHandler
-                0x6000bdf8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bdf8                USB_PHY1_IRQHandler
+                0x6000bdf4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bdf4                USB_PHY1_IRQHandler
  .text.USB_PHY2_IRQHandler
-                0x6000be00        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be00                USB_PHY2_IRQHandler
+                0x6000bdfc        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bdfc                USB_PHY2_IRQHandler
  .text.ADC1_IRQHandler
-                0x6000be08        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be08                ADC1_IRQHandler
+                0x6000be04        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be04                ADC1_IRQHandler
  .text.ADC2_IRQHandler
-                0x6000be10        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be10                ADC2_IRQHandler
+                0x6000be0c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be0c                ADC2_IRQHandler
  .text.DCDC_IRQHandler
-                0x6000be18        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be18                DCDC_IRQHandler
+                0x6000be14        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be14                DCDC_IRQHandler
  .text.Reserved86_IRQHandler
-                0x6000be20        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be20                Reserved86_IRQHandler
+                0x6000be1c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be1c                Reserved86_IRQHandler
  .text.Reserved87_IRQHandler
-                0x6000be28        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be28                Reserved87_IRQHandler
+                0x6000be24        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be24                Reserved87_IRQHandler
  .text.GPIO1_INT0_IRQHandler
-                0x6000be30        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be30                GPIO1_INT0_IRQHandler
+                0x6000be2c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be2c                GPIO1_INT0_IRQHandler
  .text.GPIO1_INT1_IRQHandler
-                0x6000be38        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be38                GPIO1_INT1_IRQHandler
+                0x6000be34        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be34                GPIO1_INT1_IRQHandler
  .text.GPIO1_INT2_IRQHandler
-                0x6000be40        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be40                GPIO1_INT2_IRQHandler
+                0x6000be3c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be3c                GPIO1_INT2_IRQHandler
  .text.GPIO1_INT3_IRQHandler
-                0x6000be48        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be48                GPIO1_INT3_IRQHandler
+                0x6000be44        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be44                GPIO1_INT3_IRQHandler
  .text.GPIO1_INT4_IRQHandler
-                0x6000be50        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be50                GPIO1_INT4_IRQHandler
+                0x6000be4c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be4c                GPIO1_INT4_IRQHandler
  .text.GPIO1_INT5_IRQHandler
-                0x6000be58        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be58                GPIO1_INT5_IRQHandler
+                0x6000be54        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be54                GPIO1_INT5_IRQHandler
  .text.GPIO1_INT6_IRQHandler
-                0x6000be60        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be60                GPIO1_INT6_IRQHandler
+                0x6000be5c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be5c                GPIO1_INT6_IRQHandler
  .text.GPIO1_INT7_IRQHandler
-                0x6000be68        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be68                GPIO1_INT7_IRQHandler
+                0x6000be64        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be64                GPIO1_INT7_IRQHandler
  .text.GPIO1_Combined_0_15_IRQHandler
-                0x6000be70        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be70                GPIO1_Combined_0_15_IRQHandler
+                0x6000be6c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be6c                GPIO1_Combined_0_15_IRQHandler
  .text.GPIO1_Combined_16_31_IRQHandler
-                0x6000be78        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be78                GPIO1_Combined_16_31_IRQHandler
+                0x6000be74        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be74                GPIO1_Combined_16_31_IRQHandler
  .text.GPIO2_Combined_0_15_IRQHandler
-                0x6000be80        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be80                GPIO2_Combined_0_15_IRQHandler
+                0x6000be7c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be7c                GPIO2_Combined_0_15_IRQHandler
  .text.GPIO2_Combined_16_31_IRQHandler
-                0x6000be88        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be88                GPIO2_Combined_16_31_IRQHandler
+                0x6000be84        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be84                GPIO2_Combined_16_31_IRQHandler
  .text.GPIO3_Combined_0_15_IRQHandler
-                0x6000be90        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be90                GPIO3_Combined_0_15_IRQHandler
+                0x6000be8c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be8c                GPIO3_Combined_0_15_IRQHandler
  .text.GPIO3_Combined_16_31_IRQHandler
-                0x6000be98        0x8 ./startup/startup_mimxrt1062.o
-                0x6000be98                GPIO3_Combined_16_31_IRQHandler
+                0x6000be94        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be94                GPIO3_Combined_16_31_IRQHandler
  .text.GPIO4_Combined_0_15_IRQHandler
-                0x6000bea0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bea0                GPIO4_Combined_0_15_IRQHandler
+                0x6000be9c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000be9c                GPIO4_Combined_0_15_IRQHandler
  .text.GPIO4_Combined_16_31_IRQHandler
-                0x6000bea8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bea8                GPIO4_Combined_16_31_IRQHandler
+                0x6000bea4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bea4                GPIO4_Combined_16_31_IRQHandler
  .text.GPIO5_Combined_16_31_IRQHandler
-                0x6000beb0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000beb0                GPIO5_Combined_16_31_IRQHandler
+                0x6000beac        0x8 ./startup/startup_mimxrt1062.o
+                0x6000beac                GPIO5_Combined_16_31_IRQHandler
  .text.FLEXIO1_IRQHandler
-                0x6000beb8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000beb8                FLEXIO1_IRQHandler
+                0x6000beb4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000beb4                FLEXIO1_IRQHandler
  .text.FLEXIO2_IRQHandler
-                0x6000bec0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bec0                FLEXIO2_IRQHandler
+                0x6000bebc        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bebc                FLEXIO2_IRQHandler
  .text.WDOG1_IRQHandler
-                0x6000bec8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bec8                WDOG1_IRQHandler
+                0x6000bec4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bec4                WDOG1_IRQHandler
  .text.RTWDOG_IRQHandler
-                0x6000bed0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bed0                RTWDOG_IRQHandler
+                0x6000becc        0x8 ./startup/startup_mimxrt1062.o
+                0x6000becc                RTWDOG_IRQHandler
  .text.EWM_IRQHandler
-                0x6000bed8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bed8                EWM_IRQHandler
+                0x6000bed4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bed4                EWM_IRQHandler
  .text.CCM_1_IRQHandler
-                0x6000bee0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bee0                CCM_1_IRQHandler
+                0x6000bedc        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bedc                CCM_1_IRQHandler
  .text.CCM_2_IRQHandler
-                0x6000bee8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bee8                CCM_2_IRQHandler
+                0x6000bee4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bee4                CCM_2_IRQHandler
  .text.GPC_IRQHandler
-                0x6000bef0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bef0                GPC_IRQHandler
+                0x6000beec        0x8 ./startup/startup_mimxrt1062.o
+                0x6000beec                GPC_IRQHandler
  .text.SRC_IRQHandler
-                0x6000bef8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bef8                SRC_IRQHandler
+                0x6000bef4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bef4                SRC_IRQHandler
  .text.Reserved115_IRQHandler
-                0x6000bf00        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf00                Reserved115_IRQHandler
+                0x6000befc        0x8 ./startup/startup_mimxrt1062.o
+                0x6000befc                Reserved115_IRQHandler
  .text.GPT1_IRQHandler
-                0x6000bf08        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf08                GPT1_IRQHandler
+                0x6000bf04        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf04                GPT1_IRQHandler
  .text.GPT2_IRQHandler
-                0x6000bf10        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf10                GPT2_IRQHandler
+                0x6000bf0c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf0c                GPT2_IRQHandler
  .text.PWM1_0_IRQHandler
-                0x6000bf18        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf18                PWM1_0_IRQHandler
+                0x6000bf14        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf14                PWM1_0_IRQHandler
  .text.PWM1_1_IRQHandler
-                0x6000bf20        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf20                PWM1_1_IRQHandler
+                0x6000bf1c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf1c                PWM1_1_IRQHandler
  .text.PWM1_2_IRQHandler
-                0x6000bf28        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf28                PWM1_2_IRQHandler
+                0x6000bf24        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf24                PWM1_2_IRQHandler
  .text.PWM1_3_IRQHandler
-                0x6000bf30        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf30                PWM1_3_IRQHandler
+                0x6000bf2c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf2c                PWM1_3_IRQHandler
  .text.PWM1_FAULT_IRQHandler
-                0x6000bf38        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf38                PWM1_FAULT_IRQHandler
+                0x6000bf34        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf34                PWM1_FAULT_IRQHandler
  .text.FLEXSPI2_IRQHandler
-                0x6000bf40        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf40                FLEXSPI2_IRQHandler
+                0x6000bf3c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf3c                FLEXSPI2_IRQHandler
  .text.FLEXSPI_IRQHandler
-                0x6000bf48        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf48                FLEXSPI_IRQHandler
+                0x6000bf44        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf44                FLEXSPI_IRQHandler
  .text.SEMC_IRQHandler
-                0x6000bf50        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf50                SEMC_IRQHandler
+                0x6000bf4c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf4c                SEMC_IRQHandler
  .text.USDHC1_IRQHandler
-                0x6000bf58        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf58                USDHC1_IRQHandler
+                0x6000bf54        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf54                USDHC1_IRQHandler
  .text.USDHC2_IRQHandler
-                0x6000bf60        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf60                USDHC2_IRQHandler
+                0x6000bf5c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf5c                USDHC2_IRQHandler
  .text.USB_OTG2_IRQHandler
-                0x6000bf68        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf68                USB_OTG2_IRQHandler
+                0x6000bf64        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf64                USB_OTG2_IRQHandler
  .text.USB_OTG1_IRQHandler
-                0x6000bf70        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf70                USB_OTG1_IRQHandler
+                0x6000bf6c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf6c                USB_OTG1_IRQHandler
  .text.ENET_IRQHandler
-                0x6000bf78        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf78                ENET_IRQHandler
+                0x6000bf74        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf74                ENET_IRQHandler
  .text.ENET_1588_Timer_IRQHandler
-                0x6000bf80        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf80                ENET_1588_Timer_IRQHandler
+                0x6000bf7c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf7c                ENET_1588_Timer_IRQHandler
  .text.XBAR1_IRQ_0_1_IRQHandler
-                0x6000bf88        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf88                XBAR1_IRQ_0_1_IRQHandler
+                0x6000bf84        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf84                XBAR1_IRQ_0_1_IRQHandler
  .text.XBAR1_IRQ_2_3_IRQHandler
-                0x6000bf90        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf90                XBAR1_IRQ_2_3_IRQHandler
+                0x6000bf8c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf8c                XBAR1_IRQ_2_3_IRQHandler
  .text.ADC_ETC_IRQ1_IRQHandler
-                0x6000bf98        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bf98                ADC_ETC_IRQ1_IRQHandler
+                0x6000bf94        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf94                ADC_ETC_IRQ1_IRQHandler
  .text.ADC_ETC_IRQ2_IRQHandler
-                0x6000bfa0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bfa0                ADC_ETC_IRQ2_IRQHandler
+                0x6000bf9c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bf9c                ADC_ETC_IRQ2_IRQHandler
  .text.ADC_ETC_ERROR_IRQ_IRQHandler
-                0x6000bfa8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bfa8                ADC_ETC_ERROR_IRQ_IRQHandler
+                0x6000bfa4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bfa4                ADC_ETC_ERROR_IRQ_IRQHandler
  .text.PIT_IRQHandler
-                0x6000bfb0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bfb0                PIT_IRQHandler
+                0x6000bfac        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bfac                PIT_IRQHandler
  .text.ACMP1_IRQHandler
-                0x6000bfb8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bfb8                ACMP1_IRQHandler
+                0x6000bfb4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bfb4                ACMP1_IRQHandler
  .text.ACMP2_IRQHandler
-                0x6000bfc0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bfc0                ACMP2_IRQHandler
+                0x6000bfbc        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bfbc                ACMP2_IRQHandler
  .text.ACMP3_IRQHandler
-                0x6000bfc8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bfc8                ACMP3_IRQHandler
+                0x6000bfc4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bfc4                ACMP3_IRQHandler
  .text.ACMP4_IRQHandler
-                0x6000bfd0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bfd0                ACMP4_IRQHandler
+                0x6000bfcc        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bfcc                ACMP4_IRQHandler
  .text.Reserved143_IRQHandler
-                0x6000bfd8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bfd8                Reserved143_IRQHandler
+                0x6000bfd4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bfd4                Reserved143_IRQHandler
  .text.Reserved144_IRQHandler
-                0x6000bfe0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bfe0                Reserved144_IRQHandler
+                0x6000bfdc        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bfdc                Reserved144_IRQHandler
  .text.ENC1_IRQHandler
-                0x6000bfe8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bfe8                ENC1_IRQHandler
+                0x6000bfe4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bfe4                ENC1_IRQHandler
  .text.ENC2_IRQHandler
-                0x6000bff0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bff0                ENC2_IRQHandler
+                0x6000bfec        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bfec                ENC2_IRQHandler
  .text.ENC3_IRQHandler
-                0x6000bff8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000bff8                ENC3_IRQHandler
+                0x6000bff4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bff4                ENC3_IRQHandler
  .text.ENC4_IRQHandler
-                0x6000c000        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c000                ENC4_IRQHandler
+                0x6000bffc        0x8 ./startup/startup_mimxrt1062.o
+                0x6000bffc                ENC4_IRQHandler
  .text.TMR1_IRQHandler
-                0x6000c008        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c008                TMR1_IRQHandler
+                0x6000c004        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c004                TMR1_IRQHandler
  .text.TMR2_IRQHandler
-                0x6000c010        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c010                TMR2_IRQHandler
+                0x6000c00c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c00c                TMR2_IRQHandler
  .text.TMR3_IRQHandler
-                0x6000c018        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c018                TMR3_IRQHandler
+                0x6000c014        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c014                TMR3_IRQHandler
  .text.TMR4_IRQHandler
-                0x6000c020        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c020                TMR4_IRQHandler
+                0x6000c01c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c01c                TMR4_IRQHandler
  .text.PWM2_0_IRQHandler
-                0x6000c028        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c028                PWM2_0_IRQHandler
+                0x6000c024        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c024                PWM2_0_IRQHandler
  .text.PWM2_1_IRQHandler
-                0x6000c030        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c030                PWM2_1_IRQHandler
+                0x6000c02c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c02c                PWM2_1_IRQHandler
  .text.PWM2_2_IRQHandler
-                0x6000c038        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c038                PWM2_2_IRQHandler
+                0x6000c034        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c034                PWM2_2_IRQHandler
  .text.PWM2_3_IRQHandler
-                0x6000c040        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c040                PWM2_3_IRQHandler
+                0x6000c03c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c03c                PWM2_3_IRQHandler
  .text.PWM2_FAULT_IRQHandler
-                0x6000c048        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c048                PWM2_FAULT_IRQHandler
+                0x6000c044        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c044                PWM2_FAULT_IRQHandler
  .text.PWM3_0_IRQHandler
-                0x6000c050        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c050                PWM3_0_IRQHandler
+                0x6000c04c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c04c                PWM3_0_IRQHandler
  .text.PWM3_1_IRQHandler
-                0x6000c058        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c058                PWM3_1_IRQHandler
+                0x6000c054        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c054                PWM3_1_IRQHandler
  .text.PWM3_2_IRQHandler
-                0x6000c060        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c060                PWM3_2_IRQHandler
+                0x6000c05c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c05c                PWM3_2_IRQHandler
  .text.PWM3_3_IRQHandler
-                0x6000c068        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c068                PWM3_3_IRQHandler
+                0x6000c064        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c064                PWM3_3_IRQHandler
  .text.PWM3_FAULT_IRQHandler
-                0x6000c070        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c070                PWM3_FAULT_IRQHandler
+                0x6000c06c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c06c                PWM3_FAULT_IRQHandler
  .text.PWM4_0_IRQHandler
-                0x6000c078        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c078                PWM4_0_IRQHandler
+                0x6000c074        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c074                PWM4_0_IRQHandler
  .text.PWM4_1_IRQHandler
-                0x6000c080        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c080                PWM4_1_IRQHandler
+                0x6000c07c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c07c                PWM4_1_IRQHandler
  .text.PWM4_2_IRQHandler
-                0x6000c088        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c088                PWM4_2_IRQHandler
+                0x6000c084        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c084                PWM4_2_IRQHandler
  .text.PWM4_3_IRQHandler
-                0x6000c090        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c090                PWM4_3_IRQHandler
+                0x6000c08c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c08c                PWM4_3_IRQHandler
  .text.PWM4_FAULT_IRQHandler
-                0x6000c098        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c098                PWM4_FAULT_IRQHandler
+                0x6000c094        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c094                PWM4_FAULT_IRQHandler
  .text.ENET2_IRQHandler
-                0x6000c0a0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c0a0                ENET2_IRQHandler
+                0x6000c09c        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c09c                ENET2_IRQHandler
  .text.ENET2_1588_Timer_IRQHandler
-                0x6000c0a8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c0a8                ENET2_1588_Timer_IRQHandler
+                0x6000c0a4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c0a4                ENET2_1588_Timer_IRQHandler
  .text.CAN3_IRQHandler
-                0x6000c0b0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c0b0                CAN3_IRQHandler
+                0x6000c0ac        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c0ac                CAN3_IRQHandler
  .text.Reserved171_IRQHandler
-                0x6000c0b8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c0b8                Reserved171_IRQHandler
+                0x6000c0b4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c0b4                Reserved171_IRQHandler
  .text.FLEXIO3_IRQHandler
-                0x6000c0c0        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c0c0                FLEXIO3_IRQHandler
+                0x6000c0bc        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c0bc                FLEXIO3_IRQHandler
  .text.GPIO6_7_8_9_IRQHandler
-                0x6000c0c8        0x8 ./startup/startup_mimxrt1062.o
-                0x6000c0c8                GPIO6_7_8_9_IRQHandler
+                0x6000c0c4        0x8 ./startup/startup_mimxrt1062.o
+                0x6000c0c4                GPIO6_7_8_9_IRQHandler
  .text.EnableIRQ
-                0x6000c0d0       0x32 ./source/ADCbib.o
+                0x6000c0cc       0x32 ./source/ADCbib.o
  .text.ADC_EnableHardwareTrigger
-                0x6000c102       0x38 ./source/ADCbib.o
+                0x6000c0fe       0x38 ./source/ADCbib.o
  .text.EnableIRQ
-                0x6000c13a       0x32 ./source/FreeMasterbib.o
+                0x6000c136       0x32 ./source/FreeMasterbib.o
  .text.LPUART1_IRQHandler
-                0x6000c16c        0xc ./source/FreeMasterbib.o
-                0x6000c16c                LPUART1_IRQHandler
+                0x6000c168        0xc ./source/FreeMasterbib.o
+                0x6000c168                LPUART1_IRQHandler
  .text.FMSTR_TsaGetTable
-                0x6000c178       0x3c ./source/FreeMasterbib.o
-                0x6000c178                FMSTR_TsaGetTable
+                0x6000c174       0x3c ./source/FreeMasterbib.o
+                0x6000c174                FMSTR_TsaGetTable
  .text.EnableIRQ
-                0x6000c1b4       0x32 ./source/GPIObib.o
+                0x6000c1b0       0x32 ./source/GPIObib.o
  .text.GPIO_PortToggle
-                0x6000c1e6       0x1e ./source/GPIObib.o
+                0x6000c1e2       0x1e ./source/GPIObib.o
  .text.GPIO_PortEnableInterrupts
-                0x6000c204       0x22 ./source/GPIObib.o
+                0x6000c200       0x22 ./source/GPIObib.o
  .text.GPIO_PortClearInterruptFlags
-                0x6000c226       0x1c ./source/GPIObib.o
+                0x6000c222       0x1c ./source/GPIObib.o
  .text.ParpadeoLED
-                0x6000c242       0x24 ./source/Principal.o
+                0x6000c23e       0x24 ./source/Principal.o
  .text.ComFreeMaster
-                0x6000c266       0x28 ./source/Principal.o
+                0x6000c262       0x28 ./source/Principal.o
  .text.HardFault_Handler
-                0x6000c28e       0x2c ./source/semihost_hardfault.o
-                0x6000c28e                HardFault_Handler
+                0x6000c28a       0x2c ./source/semihost_hardfault.o
+                0x6000c28a                HardFault_Handler
  .text.vListInitialise
-                0x6000c2ba       0x40 ./freertos/freertos_kernel/list.o
-                0x6000c2ba                vListInitialise
+                0x6000c2b6       0x40 ./freertos/freertos_kernel/list.o
+                0x6000c2b6                vListInitialise
  .text.vListInitialiseItem
-                0x6000c2fa       0x1a ./freertos/freertos_kernel/list.o
-                0x6000c2fa                vListInitialiseItem
+                0x6000c2f6       0x1a ./freertos/freertos_kernel/list.o
+                0x6000c2f6                vListInitialiseItem
  .text.vListInsertEnd
-                0x6000c314       0x48 ./freertos/freertos_kernel/list.o
-                0x6000c314                vListInsertEnd
+                0x6000c310       0x48 ./freertos/freertos_kernel/list.o
+                0x6000c310                vListInsertEnd
  .text.vListInsert
-                0x6000c35c       0x72 ./freertos/freertos_kernel/list.o
-                0x6000c35c                vListInsert
+                0x6000c358       0x72 ./freertos/freertos_kernel/list.o
+                0x6000c358                vListInsert
  .text.uxListRemove
-                0x6000c3ce       0x54 ./freertos/freertos_kernel/list.o
-                0x6000c3ce                uxListRemove
+                0x6000c3ca       0x54 ./freertos/freertos_kernel/list.o
+                0x6000c3ca                uxListRemove
  .text.xQueueGenericCreate
-                0x6000c422       0x6c ./freertos/freertos_kernel/queue.o
-                0x6000c422                xQueueGenericCreate
+                0x6000c41e       0x6c ./freertos/freertos_kernel/queue.o
+                0x6000c41e                xQueueGenericCreate
  .text.prvInitialiseNewQueue
-                0x6000c48e       0x46 ./freertos/freertos_kernel/queue.o
+                0x6000c48a       0x46 ./freertos/freertos_kernel/queue.o
  .text.xQueueGenericSendFromISR
-                0x6000c4d4      0x136 ./freertos/freertos_kernel/queue.o
-                0x6000c4d4                xQueueGenericSendFromISR
+                0x6000c4d0      0x136 ./freertos/freertos_kernel/queue.o
+                0x6000c4d0                xQueueGenericSendFromISR
  .text.prvCopyDataToQueue
-                0x6000c60a       0xd4 ./freertos/freertos_kernel/queue.o
+                0x6000c606       0xd4 ./freertos/freertos_kernel/queue.o
  .text.prvCopyDataFromQueue
-                0x6000c6de       0x4c ./freertos/freertos_kernel/queue.o
+                0x6000c6da       0x4c ./freertos/freertos_kernel/queue.o
  .text.prvUnlockQueue
-                0x6000c72a       0xa4 ./freertos/freertos_kernel/queue.o
+                0x6000c726       0xa4 ./freertos/freertos_kernel/queue.o
  .text.prvIsQueueEmpty
-                0x6000c7ce       0x2c ./freertos/freertos_kernel/queue.o
+                0x6000c7ca       0x2c ./freertos/freertos_kernel/queue.o
  .text.prvIsQueueFull
-                0x6000c7fa       0x30 ./freertos/freertos_kernel/queue.o
+                0x6000c7f6       0x30 ./freertos/freertos_kernel/queue.o
  .text.vQueueWaitForMessageRestricted
-                0x6000c82a       0x68 ./freertos/freertos_kernel/queue.o
-                0x6000c82a                vQueueWaitForMessageRestricted
+                0x6000c826       0x68 ./freertos/freertos_kernel/queue.o
+                0x6000c826                vQueueWaitForMessageRestricted
  .text.xTaskCreate
-                0x6000c892       0x82 ./freertos/freertos_kernel/tasks.o
-                0x6000c892                xTaskCreate
+                0x6000c88e       0x82 ./freertos/freertos_kernel/tasks.o
+                0x6000c88e                xTaskCreate
  .text.prvInitialiseNewTask
-                0x6000c914      0x13c ./freertos/freertos_kernel/tasks.o
+                0x6000c910      0x13c ./freertos/freertos_kernel/tasks.o
  .text.prvDeleteTCB
-                0x6000ca50       0x20 ./freertos/freertos_kernel/tasks.o
+                0x6000ca4c       0x20 ./freertos/freertos_kernel/tasks.o
  .text.prvTimerTask
-                0x6000ca70       0x24 ./freertos/freertos_kernel/timers.o
+                0x6000ca6c       0x24 ./freertos/freertos_kernel/timers.o
  .text._FMSTR_PipeGetBytesFree
-                0x6000ca94       0x58 ./freemaster/freemaster_pipes.o
+                0x6000ca90       0x58 ./freemaster/freemaster_pipes.o
  .text._FMSTR_PipeGetBytesReady
-                0x6000caec       0x5a ./freemaster/freemaster_pipes.o
+                0x6000cae8       0x5a ./freemaster/freemaster_pipes.o
  .text._FMSTR_PipeDiscardBytes
-                0x6000cb46       0x6a ./freemaster/freemaster_pipes.o
+                0x6000cb42       0x6a ./freemaster/freemaster_pipes.o
  .text._FMSTR_PipeReceive
-                0x6000cbb0       0xc2 ./freemaster/freemaster_pipes.o
+                0x6000cbac       0xc2 ./freemaster/freemaster_pipes.o
  .text._FMSTR_PipeTransmit
-                0x6000cc72       0x92 ./freemaster/freemaster_pipes.o
+                0x6000cc6e       0x92 ./freemaster/freemaster_pipes.o
  .text._FMSTR_ReadMem
-                0x6000cd04       0x72 ./freemaster/freemaster_protocol.o
-                0x6000cd04                _FMSTR_ReadMem
+                0x6000cd00       0x72 ./freemaster/freemaster_protocol.o
+                0x6000cd00                _FMSTR_ReadMem
  .text._FMSTR_ReadMemBaseAddress
-                0x6000cd76       0x7a ./freemaster/freemaster_protocol.o
-                0x6000cd76                _FMSTR_ReadMemBaseAddress
+                0x6000cd72       0x7a ./freemaster/freemaster_protocol.o
+                0x6000cd72                _FMSTR_ReadMemBaseAddress
  .text._FMSTR_WriteMem
-                0x6000cdf0       0x88 ./freemaster/freemaster_protocol.o
-                0x6000cdf0                _FMSTR_WriteMem
+                0x6000cdec       0x88 ./freemaster/freemaster_protocol.o
+                0x6000cdec                _FMSTR_WriteMem
  .text.FMSTR_ADDR_VALID_Func
-                0x6000ce78       0x20 ./freemaster/freemaster_rec.o
+                0x6000ce74       0x20 ./freemaster/freemaster_rec.o
  .text.FMSTR_CAST_PTR_TO_ADDR_Func
-                0x6000ce98       0x16 ./freemaster/freemaster_rec.o
+                0x6000ce94       0x16 ./freemaster/freemaster_rec.o
  .text._FMSTR_SetRecCmd_CFGMEM
-                0x6000ceae       0x96 ./freemaster/freemaster_rec.o
+                0x6000ceaa       0x96 ./freemaster/freemaster_rec.o
  .text._FMSTR_SetRecCmd_CFGVAR
-                0x6000cf44      0x128 ./freemaster/freemaster_rec.o
+                0x6000cf40      0x128 ./freemaster/freemaster_rec.o
  .text._FMSTR_RecIsValidVarSize
-                0x6000d06c       0x32 ./freemaster/freemaster_rec.o
+                0x6000d068       0x32 ./freemaster/freemaster_rec.o
  .text._FMSTR_CalcRecStatus
-                0x6000d09e       0x56 ./freemaster/freemaster_rec.o
+                0x6000d09a       0x56 ./freemaster/freemaster_rec.o
  .text.FMSTR_GetRecCmd
-                0x6000d0f4      0x1f4 ./freemaster/freemaster_rec.o
-                0x6000d0f4                FMSTR_GetRecCmd
+                0x6000d0f0      0x1f4 ./freemaster/freemaster_rec.o
+                0x6000d0f0                FMSTR_GetRecCmd
  .text._FMSTR_StartRec
-                0x6000d2e8       0x8c ./freemaster/freemaster_rec.o
+                0x6000d2e4       0x8c ./freemaster/freemaster_rec.o
  .text._FMSTR_TriggerRec
-                0x6000d374       0x5a ./freemaster/freemaster_rec.o
+                0x6000d370       0x5a ./freemaster/freemaster_rec.o
  .text._FMSTR_AbortRec
-                0x6000d3ce       0x52 ./freemaster/freemaster_rec.o
+                0x6000d3ca       0x52 ./freemaster/freemaster_rec.o
  .text.FMSTR_IsInRecBuffer
-                0x6000d420       0x56 ./freemaster/freemaster_rec.o
-                0x6000d420                FMSTR_IsInRecBuffer
+                0x6000d41c       0x56 ./freemaster/freemaster_rec.o
+                0x6000d41c                FMSTR_IsInRecBuffer
  .text._FMSTR_CheckConfiguration
-                0x6000d476      0x14a ./freemaster/freemaster_rec.o
+                0x6000d472      0x14a ./freemaster/freemaster_rec.o
  .text._FMSTR_Compare8S
-                0x6000d5c0       0x2e ./freemaster/freemaster_rec.o
+                0x6000d5bc       0x2e ./freemaster/freemaster_rec.o
  .text._FMSTR_Compare8U
-                0x6000d5ee       0x2a ./freemaster/freemaster_rec.o
+                0x6000d5ea       0x2a ./freemaster/freemaster_rec.o
  .text._FMSTR_Compare16S
-                0x6000d618       0x2e ./freemaster/freemaster_rec.o
+                0x6000d614       0x2e ./freemaster/freemaster_rec.o
  .text._FMSTR_Compare16U
-                0x6000d646       0x2a ./freemaster/freemaster_rec.o
+                0x6000d642       0x2a ./freemaster/freemaster_rec.o
  .text._FMSTR_Compare32S
-                0x6000d670       0x2a ./freemaster/freemaster_rec.o
+                0x6000d66c       0x2a ./freemaster/freemaster_rec.o
  .text._FMSTR_Compare32U
-                0x6000d69a       0x2a ./freemaster/freemaster_rec.o
+                0x6000d696       0x2a ./freemaster/freemaster_rec.o
  .text._FMSTR_Compare64S
-                0x6000d6c4       0x32 ./freemaster/freemaster_rec.o
+                0x6000d6c0       0x32 ./freemaster/freemaster_rec.o
  .text._FMSTR_Compare64U
-                0x6000d6f6       0x32 ./freemaster/freemaster_rec.o
+                0x6000d6f2       0x32 ./freemaster/freemaster_rec.o
  .text._FMSTR_CompareFloat
-                0x6000d728       0x3a ./freemaster/freemaster_rec.o
+                0x6000d724       0x3a ./freemaster/freemaster_rec.o
  .text._FMSTR_CompareDouble
-                0x6000d762       0x38 ./freemaster/freemaster_rec.o
+                0x6000d75e       0x38 ./freemaster/freemaster_rec.o
  .text.FMSTR_Recorder
-                0x6000d79a       0x34 ./freemaster/freemaster_rec.o
-                0x6000d79a                FMSTR_Recorder
+                0x6000d796       0x34 ./freemaster/freemaster_rec.o
+                0x6000d796                FMSTR_Recorder
  .text._FMSTR_Recorder2
-                0x6000d7ce      0x172 ./freemaster/freemaster_rec.o
+                0x6000d7ca      0x172 ./freemaster/freemaster_rec.o
  .text._FMSTR_SetScope_CFGMEM
-                0x6000d940       0x34 ./freemaster/freemaster_scope.o
+                0x6000d93c       0x34 ./freemaster/freemaster_scope.o
  .text._FMSTR_SetScope_CFGVAR
-                0x6000d974       0xae ./freemaster/freemaster_scope.o
+                0x6000d970       0xae ./freemaster/freemaster_scope.o
  .text.LPUART_EnableTx
-                0x6000da22       0x38 ./freemaster/freemaster_serial_lpuart.o
+                0x6000da1e       0x38 ./freemaster/freemaster_serial_lpuart.o
  .text.LPUART_EnableRx
-                0x6000da5a       0x38 ./freemaster/freemaster_serial_lpuart.o
+                0x6000da56       0x38 ./freemaster/freemaster_serial_lpuart.o
  .text.LPUART_WriteByte
-                0x6000da92       0x1e ./freemaster/freemaster_serial_lpuart.o
+                0x6000da8e       0x1e ./freemaster/freemaster_serial_lpuart.o
  .text.LPUART_ReadByte
-                0x6000dab0       0x6e ./freemaster/freemaster_serial_lpuart.o
+                0x6000daac       0x6e ./freemaster/freemaster_serial_lpuart.o
  .text._FMSTR_SerialLpuartFlush
-                0x6000db1e        0xe ./freemaster/freemaster_serial_lpuart.o
+                0x6000db1a        0xe ./freemaster/freemaster_serial_lpuart.o
  .text.FMSTR_SerialIsr
-                0x6000db2c        0xc ./freemaster/freemaster_serial_lpuart.o
-                0x6000db2c                FMSTR_SerialIsr
+                0x6000db28        0xc ./freemaster/freemaster_serial_lpuart.o
+                0x6000db28                FMSTR_SerialIsr
  .text.FMSTR_CAST_PTR_TO_ADDR_Func
-                0x6000db38       0x16 ./freemaster/freemaster_tsa.o
+                0x6000db34       0x16 ./freemaster/freemaster_tsa.o
  .text.FMSTR_CAST_ADDR_TO_PTR_Func
-                0x6000db4e       0x16 ./freemaster/freemaster_tsa.o
+                0x6000db4a       0x16 ./freemaster/freemaster_tsa.o
  .text.FMSTR_CheckMemSpace
-                0x6000db64       0x40 ./freemaster/freemaster_tsa.o
+                0x6000db60       0x40 ./freemaster/freemaster_tsa.o
  .text.FMSTR_CheckTsaSpace
-                0x6000dba4      0x164 ./freemaster/freemaster_tsa.o
-                0x6000dba4                FMSTR_CheckTsaSpace
+                0x6000dba0      0x164 ./freemaster/freemaster_tsa.o
+                0x6000dba0                FMSTR_CheckTsaSpace
  .text.FMSTR_FindUresInTsa
-                0x6000dd08       0x5a ./freemaster/freemaster_tsa.o
-                0x6000dd08                FMSTR_FindUresInTsa
+                0x6000dd04       0x5a ./freemaster/freemaster_tsa.o
+                0x6000dd04                FMSTR_FindUresInTsa
  .text._FMSTR_CopySrcAligned_U32
-                0x6000dd62       0x62 ./freemaster/freemaster_utils.o
+                0x6000dd5e       0x62 ./freemaster/freemaster_utils.o
  .text._FMSTR_CopyDstAligned_U32
-                0x6000ddc4       0x62 ./freemaster/freemaster_utils.o
+                0x6000ddc0       0x62 ./freemaster/freemaster_utils.o
  .text._FMSTR_CopyMaskedDstAligned_U32
-                0x6000de26       0x4a ./freemaster/freemaster_utils.o
+                0x6000de22       0x4a ./freemaster/freemaster_utils.o
  .text._FMSTR_CopySrcAligned_U16
-                0x6000de70       0x42 ./freemaster/freemaster_utils.o
+                0x6000de6c       0x42 ./freemaster/freemaster_utils.o
  .text._FMSTR_CopyDstAligned_U16
-                0x6000deb2       0x42 ./freemaster/freemaster_utils.o
+                0x6000deae       0x42 ./freemaster/freemaster_utils.o
  .text._FMSTR_CopyMaskedDstAligned_U16
-                0x6000def4       0x58 ./freemaster/freemaster_utils.o
+                0x6000def0       0x58 ./freemaster/freemaster_utils.o
  .text.FMSTR_MemCpyFrom
-                0x6000df4c       0x82 ./freemaster/freemaster_utils.o
-                0x6000df4c                FMSTR_MemCpyFrom
+                0x6000df48       0x82 ./freemaster/freemaster_utils.o
+                0x6000df48                FMSTR_MemCpyFrom
  .text.FMSTR_MemCpyTo
-                0x6000dfce       0x82 ./freemaster/freemaster_utils.o
-                0x6000dfce                FMSTR_MemCpyTo
+                0x6000dfca       0x82 ./freemaster/freemaster_utils.o
+                0x6000dfca                FMSTR_MemCpyTo
  .text.FMSTR_MemCpyToMasked
-                0x6000e050       0xc0 ./freemaster/freemaster_utils.o
-                0x6000e050                FMSTR_MemCpyToMasked
+                0x6000e04c       0xc0 ./freemaster/freemaster_utils.o
+                0x6000e04c                FMSTR_MemCpyToMasked
  .text.FMSTR_CopyToBuffer
-                0x6000e110       0x24 ./freemaster/freemaster_utils.o
-                0x6000e110                FMSTR_CopyToBuffer
+                0x6000e10c       0x24 ./freemaster/freemaster_utils.o
+                0x6000e10c                FMSTR_CopyToBuffer
  .text.FMSTR_CopyFromBuffer
-                0x6000e134       0x24 ./freemaster/freemaster_utils.o
-                0x6000e134                FMSTR_CopyFromBuffer
+                0x6000e130       0x24 ./freemaster/freemaster_utils.o
+                0x6000e130                FMSTR_CopyFromBuffer
  .text.FMSTR_CopyFromBufferWithMask
-                0x6000e158       0x24 ./freemaster/freemaster_utils.o
-                0x6000e158                FMSTR_CopyFromBufferWithMask
+                0x6000e154       0x24 ./freemaster/freemaster_utils.o
+                0x6000e154                FMSTR_CopyFromBufferWithMask
  .text.FMSTR_AddressToBuffer
-                0x6000e17c       0x20 ./freemaster/freemaster_utils.o
-                0x6000e17c                FMSTR_AddressToBuffer
+                0x6000e178       0x20 ./freemaster/freemaster_utils.o
+                0x6000e178                FMSTR_AddressToBuffer
  .text.FMSTR_AddressFromBuffer
-                0x6000e19c       0x1e ./freemaster/freemaster_utils.o
-                0x6000e19c                FMSTR_AddressFromBuffer
+                0x6000e198       0x1e ./freemaster/freemaster_utils.o
+                0x6000e198                FMSTR_AddressFromBuffer
  .text.FMSTR_SizeToBuffer
-                0x6000e1ba       0x20 ./freemaster/freemaster_utils.o
-                0x6000e1ba                FMSTR_SizeToBuffer
+                0x6000e1b6       0x20 ./freemaster/freemaster_utils.o
+                0x6000e1b6                FMSTR_SizeToBuffer
  .text.FMSTR_SizeFromBuffer
-                0x6000e1da       0x1e ./freemaster/freemaster_utils.o
-                0x6000e1da                FMSTR_SizeFromBuffer
+                0x6000e1d6       0x1e ./freemaster/freemaster_utils.o
+                0x6000e1d6                FMSTR_SizeFromBuffer
  .text.FMSTR_IndexFromBuffer
-                0x6000e1f8       0x1e ./freemaster/freemaster_utils.o
-                0x6000e1f8                FMSTR_IndexFromBuffer
+                0x6000e1f4       0x1e ./freemaster/freemaster_utils.o
+                0x6000e1f4                FMSTR_IndexFromBuffer
  .text.FMSTR_ULebToBuffer
-                0x6000e216       0x20 ./freemaster/freemaster_utils.o
-                0x6000e216                FMSTR_ULebToBuffer
+                0x6000e212       0x20 ./freemaster/freemaster_utils.o
+                0x6000e212                FMSTR_ULebToBuffer
  .text.FMSTR_LebDecode
-                0x6000e236       0xfc ./freemaster/freemaster_utils.o
+                0x6000e232       0xfc ./freemaster/freemaster_utils.o
  .text.FMSTR_UlebDecode
-                0x6000e332       0x22 ./freemaster/freemaster_utils.o
-                0x6000e332                FMSTR_UlebDecode
+                0x6000e32e       0x22 ./freemaster/freemaster_utils.o
+                0x6000e32e                FMSTR_UlebDecode
  .text.FMSTR_SlebDecode
-                0x6000e354       0x22 ./freemaster/freemaster_utils.o
-                0x6000e354                FMSTR_SlebDecode
+                0x6000e350       0x22 ./freemaster/freemaster_utils.o
+                0x6000e350                FMSTR_SlebDecode
  .text.FMSTR_UlebEncode
-                0x6000e376      0x128 ./freemaster/freemaster_utils.o
-                0x6000e376                FMSTR_UlebEncode
+                0x6000e372      0x128 ./freemaster/freemaster_utils.o
+                0x6000e372                FMSTR_UlebEncode
  .text.FMSTR_StringFromBuffer
-                0x6000e49e       0x52 ./freemaster/freemaster_utils.o
-                0x6000e49e                FMSTR_StringFromBuffer
+                0x6000e49a       0x52 ./freemaster/freemaster_utils.o
+                0x6000e49a                FMSTR_StringFromBuffer
  .text.FMSTR_StringCopyToBuffer
-                0x6000e4f0       0x40 ./freemaster/freemaster_utils.o
-                0x6000e4f0                FMSTR_StringCopyToBuffer
+                0x6000e4ec       0x40 ./freemaster/freemaster_utils.o
+                0x6000e4ec                FMSTR_StringCopyToBuffer
  .text.FMSTR_Crc8Init
-                0x6000e530       0x1a ./freemaster/freemaster_utils.o
-                0x6000e530                FMSTR_Crc8Init
+                0x6000e52c       0x1a ./freemaster/freemaster_utils.o
+                0x6000e52c                FMSTR_Crc8Init
  .text.FMSTR_Crc8AddByte
-                0x6000e54a       0x64 ./freemaster/freemaster_utils.o
-                0x6000e54a                FMSTR_Crc8AddByte
+                0x6000e546       0x64 ./freemaster/freemaster_utils.o
+                0x6000e546                FMSTR_Crc8AddByte
  .text._FMSTR_Compare
-                0x6000e5ae       0x38 ./freemaster/freemaster_utils.o
+                0x6000e5aa       0x38 ./freemaster/freemaster_utils.o
  .text._FMSTR_StrLen
-                0x6000e5e6       0x32 ./freemaster/freemaster_utils.o
-                0x6000e5e6                _FMSTR_StrLen
+                0x6000e5e2       0x32 ./freemaster/freemaster_utils.o
+                0x6000e5e2                _FMSTR_StrLen
  .text._FMSTR_MemSet
-                0x6000e618       0x36 ./freemaster/freemaster_utils.o
-                0x6000e618                _FMSTR_MemSet
+                0x6000e614       0x36 ./freemaster/freemaster_utils.o
+                0x6000e614                _FMSTR_MemSet
  .text.CLOCK_EnableClock
-                0x6000e64e       0x1e ./drivers/fsl_adc.o
+                0x6000e64a       0x1e ./drivers/fsl_adc.o
  .text.ADC_EnableHardwareTrigger
-                0x6000e66c       0x38 ./drivers/fsl_adc.o
+                0x6000e668       0x38 ./drivers/fsl_adc.o
  .text.ADC_GetStatusFlags
-                0x6000e6a4       0x18 ./drivers/fsl_adc.o
+                0x6000e6a0       0x18 ./drivers/fsl_adc.o
  .text.ADC_DoAutoCalibration
-                0x6000e6bc       0xa4 ./drivers/fsl_adc.o
-                0x6000e6bc                ADC_DoAutoCalibration
+                0x6000e6b8       0xa4 ./drivers/fsl_adc.o
+                0x6000e6b8                ADC_DoAutoCalibration
  .text.ADC_SetHardwareAverageConfig
-                0x6000e760       0x54 ./drivers/fsl_adc.o
-                0x6000e760                ADC_SetHardwareAverageConfig
+                0x6000e75c       0x54 ./drivers/fsl_adc.o
+                0x6000e75c                ADC_SetHardwareAverageConfig
  .text.ADC_ETC_DoSoftwareReset
-                0x6000e7b4       0x38 ./drivers/fsl_adc_etc.o
+                0x6000e7b0       0x38 ./drivers/fsl_adc_etc.o
  .text.ADC_ETC_GetDefaultConfig
-                0x6000e7ec       0x4a ./drivers/fsl_adc_etc.o
-                0x6000e7ec                ADC_ETC_GetDefaultConfig
+                0x6000e7e8       0x4a ./drivers/fsl_adc_etc.o
+                0x6000e7e8                ADC_ETC_GetDefaultConfig
  .text.ADC_ETC_ClearInterruptStatusFlags
-                0x6000e836       0x6e ./drivers/fsl_adc_etc.o
-                0x6000e836                ADC_ETC_ClearInterruptStatusFlags
+                0x6000e832       0x6e ./drivers/fsl_adc_etc.o
+                0x6000e832                ADC_ETC_ClearInterruptStatusFlags
  .text.CLOCK_GetRtcFreq
-                0x6000e8a4       0x12 ./drivers/fsl_clock.o
+                0x6000e8a0       0x12 ./drivers/fsl_clock.o
  .text.CLOCK_IsPllBypassed
-                0x6000e8b6       0x32 ./drivers/fsl_clock.o
+                0x6000e8b2       0x32 ./drivers/fsl_clock.o
  .text.CLOCK_IsPllEnabled
-                0x6000e8e8       0x3c ./drivers/fsl_clock.o
+                0x6000e8e4       0x3c ./drivers/fsl_clock.o
  .text.CLOCK_GetPllBypassRefClk
-                0x6000e924       0x34 ./drivers/fsl_clock.o
+                0x6000e920       0x34 ./drivers/fsl_clock.o
  .text.FLEXIO1_DriverIRQHandler
-                0x6000e958        0xc ./drivers/fsl_flexio.o
-                0x6000e958                FLEXIO1_DriverIRQHandler
+                0x6000e954        0xc ./drivers/fsl_flexio.o
+                0x6000e954                FLEXIO1_DriverIRQHandler
  .text.FLEXIO2_DriverIRQHandler
-                0x6000e964        0xc ./drivers/fsl_flexio.o
-                0x6000e964                FLEXIO2_DriverIRQHandler
+                0x6000e960        0xc ./drivers/fsl_flexio.o
+                0x6000e960                FLEXIO2_DriverIRQHandler
  .text.FLEXIO3_DriverIRQHandler
-                0x6000e970        0xc ./drivers/fsl_flexio.o
-                0x6000e970                FLEXIO3_DriverIRQHandler
+                0x6000e96c        0xc ./drivers/fsl_flexio.o
+                0x6000e96c                FLEXIO3_DriverIRQHandler
  .text.CLOCK_EnableClock
-                0x6000e97c       0x1e ./drivers/fsl_gpio.o
+                0x6000e978       0x1e ./drivers/fsl_gpio.o
  .text.GPIO_SetPinInterruptConfig
-                0x6000e99a       0x22 ./drivers/fsl_gpio.o
+                0x6000e996       0x22 ./drivers/fsl_gpio.o
  .text.CLOCK_EnableClock
-                0x6000e9bc       0x1e ./drivers/fsl_lpuart.o
+                0x6000e9b8       0x1e ./drivers/fsl_lpuart.o
  .text.LPUART_SoftwareReset
-                0x6000e9da       0x2c ./drivers/fsl_lpuart.o
+                0x6000e9d6       0x2c ./drivers/fsl_lpuart.o
  .text.LPUART_EnableInterrupts
-                0x6000ea06       0x52 ./drivers/fsl_lpuart.o
-                0x6000ea06                LPUART_EnableInterrupts
+                0x6000ea02       0x52 ./drivers/fsl_lpuart.o
+                0x6000ea02                LPUART_EnableInterrupts
  .text.LPUART_DisableInterrupts
-                0x6000ea58       0x58 ./drivers/fsl_lpuart.o
-                0x6000ea58                LPUART_DisableInterrupts
+                0x6000ea54       0x58 ./drivers/fsl_lpuart.o
+                0x6000ea54                LPUART_DisableInterrupts
  .text.LPUART_GetStatusFlags
-                0x6000eab0       0x2c ./drivers/fsl_lpuart.o
-                0x6000eab0                LPUART_GetStatusFlags
+                0x6000eaac       0x2c ./drivers/fsl_lpuart.o
+                0x6000eaac                LPUART_GetStatusFlags
  .text.CLOCK_EnableClock
-                0x6000eadc       0x1e ./drivers/fsl_pwm.o
+                0x6000ead8       0x1e ./drivers/fsl_pwm.o
  .text.CLOCK_EnableClock
-                0x6000eafa       0x1e ./drivers/fsl_xbara.o
+                0x6000eaf6       0x1e ./drivers/fsl_xbara.o
  .text.XBARA_Init
-                0x6000eb18       0x20 ./drivers/fsl_xbara.o
-                0x6000eb18                XBARA_Init
+                0x6000eb14       0x20 ./drivers/fsl_xbara.o
+                0x6000eb14                XBARA_Init
  .text.XBARA_SetSignalsConnection
-                0x6000eb38       0x5a ./drivers/fsl_xbara.o
-                0x6000eb38                XBARA_SetSignalsConnection
+                0x6000eb34       0x5a ./drivers/fsl_xbara.o
+                0x6000eb34                XBARA_SetSignalsConnection
  .text.SystemInitHook
-                0x6000eb92        0xe ./device/system_MIMXRT1062.o
-                0x6000eb92                SystemInitHook
+                0x6000eb8e        0xe ./device/system_MIMXRT1062.o
+                0x6000eb8e                SystemInitHook
  .text.CLOCK_DisableClock
-                0x6000eba0       0x1e ./board/clock_config.o
+                0x6000eb9c       0x1e ./board/clock_config.o
  .text.CLOCK_SetPllBypass
-                0x6000ebbe       0x4e ./board/clock_config.o
+                0x6000ebba       0x4e ./board/clock_config.o
  .text.IOMUXC_SetSaiMClkClockSource
-                0x6000ec0c       0x6c ./board/clock_config.o
+                0x6000ec08       0x6c ./board/clock_config.o
  .text.BOARD_InitBootClocks
-                0x6000ec78        0xc ./board/clock_config.o
-                0x6000ec78                BOARD_InitBootClocks
+                0x6000ec74        0xc ./board/clock_config.o
+                0x6000ec74                BOARD_InitBootClocks
  .text.CLOCK_EnableClock
-                0x6000ec84       0x1e ./board/pin_mux.o
+                0x6000ec80       0x1e ./board/pin_mux.o
  .text.IOMUXC_SetPinMux
-                0x6000eca2       0x3a ./board/pin_mux.o
+                0x6000ec9e       0x3a ./board/pin_mux.o
  .text.IOMUXC_SetPinConfig
-                0x6000ecdc       0x26 ./board/pin_mux.o
+                0x6000ecd8       0x26 ./board/pin_mux.o
  .text.BOARD_InitBootPins
-                0x6000ed02       0x10 ./board/pin_mux.o
-                0x6000ed02                BOARD_InitBootPins
- .text.__main   0x6000ed12        0xe c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(_cr__main.o)
-                0x6000ed12                __CR_SEMIHOST
-                0x6000ed12                __main
- .text.sqrtf    0x6000ed20        0x6 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(sqrtf_m4_hardfp.o)
-                0x6000ed20                sqrtf
- .text.memcpy   0x6000ed26        0x4 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(memcpy.o)
-                0x6000ed26                memcpy
- .text.memset   0x6000ed2a        0x4 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(memset.o)
-                0x6000ed2a                memset
+                0x6000ecfe       0x10 ./board/pin_mux.o
+                0x6000ecfe                BOARD_InitBootPins
+ .text.__main   0x6000ed0e        0xe c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(_cr__main.o)
+                0x6000ed0e                __CR_SEMIHOST
+                0x6000ed0e                __main
+ .text.sqrtf    0x6000ed1c        0x6 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(sqrtf_m4_hardfp.o)
+                0x6000ed1c                sqrtf
+ .text.memcpy   0x6000ed22        0x4 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(memcpy.o)
+                0x6000ed22                memcpy
+ .text.memset   0x6000ed26        0x4 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(memset.o)
+                0x6000ed26                memset
  .text._deferredlazyseek
-                0x6000ed2e       0x40 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(_deferredlazyseek.o)
-                0x6000ed2e                _deferredlazyseek
+                0x6000ed2a       0x40 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(_deferredlazyseek.o)
+                0x6000ed2a                _deferredlazyseek
  .text.__flsbuf
-                0x6000ed6e      0x140 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(_deferredlazyseek.o)
-                0x6000ed6e                __flsbuf
- .text._fflush  0x6000eeae       0x52 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(_fflush.o)
-                0x6000eeae                _fflush
- .text.free     0x6000ef00       0x30 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(alloc.o)
-                0x6000ef00                free
- .text.fputs    0x6000ef30       0x2c c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(fputs.o)
-                0x6000ef30                fputs
- .text.setvbuf  0x6000ef5c       0x3e c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(setvbuf.o)
-                0x6000ef5c                setvbuf
- .text.strlen   0x6000ef9a       0x4c c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(strlen.o)
-                0x6000ef9a                strlen
- .text._fdopen  0x6000efe6       0x68 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(_fdopen.o)
-                0x6000efe6                _fdopen
- .text.fclose   0x6000f04e       0x58 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(fclose.o)
-                0x6000f04e                fclose
- .text.remove   0x6000f0a6       0x14 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(remove.o)
-                0x6000f0a6                remove
+                0x6000ed6a      0x140 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(_deferredlazyseek.o)
+                0x6000ed6a                __flsbuf
+ .text._fflush  0x6000eeaa       0x52 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(_fflush.o)
+                0x6000eeaa                _fflush
+ .text.free     0x6000eefc       0x30 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(alloc.o)
+                0x6000eefc                free
+ .text.fputs    0x6000ef2c       0x2c c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(fputs.o)
+                0x6000ef2c                fputs
+ .text.setvbuf  0x6000ef58       0x3e c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(setvbuf.o)
+                0x6000ef58                setvbuf
+ .text.strlen   0x6000ef96       0x4c c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(strlen.o)
+                0x6000ef96                strlen
+ .text._fdopen  0x6000efe2       0x68 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(_fdopen.o)
+                0x6000efe2                _fdopen
+ .text.fclose   0x6000f04a       0x58 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(fclose.o)
+                0x6000f04a                fclose
+ .text.remove   0x6000f0a2       0x14 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(remove.o)
+                0x6000f0a2                remove
  .text._do_fflush
-                0x6000f0ba       0x40 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(_do_fflush.o)
-                0x6000f0ba                _do_fflush
+                0x6000f0b6       0x40 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(_do_fflush.o)
+                0x6000f0b6                _do_fflush
  .text.__aeabi_division_uldivmod
-                0x6000f0fa      0x174 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(division_64.o)
-                0x6000f0fa                __aeabi_uldivmod
-                0x6000f0fe                __bhs_ldivmod1
+                0x6000f0f6      0x174 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(division_64.o)
+                0x6000f0f6                __aeabi_uldivmod
+                0x6000f0fa                __bhs_ldivmod1
  .text.__aeabi_division_idiv0
-                0x6000f26e        0x2 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(division_idiv0.o)
-                0x6000f26e                __aeabi_idiv0
+                0x6000f26a        0x2 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(division_idiv0.o)
+                0x6000f26a                __aeabi_idiv0
  .text.__aeabi_dcmplt
-                0x6000f270       0x56 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(double.o)
-                0x6000f270                __aeabi_dcmplt
+                0x6000f26c       0x56 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(double.o)
+                0x6000f26c                __aeabi_dcmplt
  .text.__aeabi_dcmpgt
-                0x6000f2c6       0x56 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(double.o)
-                0x6000f2c6                __aeabi_dcmpgt
+                0x6000f2c2       0x56 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(double.o)
+                0x6000f2c2                __aeabi_dcmpgt
  .text.__aeabi_memcpy
-                0x6000f31c       0x34 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(memcpy.o)
-                0x6000f31c                __aeabi_memcpy
-                0x6000f326                __aeabi_memcpy8
-                0x6000f326                __aeabi_memcpy4
+                0x6000f318       0x34 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(memcpy.o)
+                0x6000f318                __aeabi_memcpy
+                0x6000f322                __aeabi_memcpy8
+                0x6000f322                __aeabi_memcpy4
  .text.__aeabi_memset_lowlevel
-                0x6000f350       0x32 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(memcpy.o)
-                0x6000f350                __aeabi_lowlevel_memset
+                0x6000f34c       0x32 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libcr_eabihelpers.a(memcpy.o)
+                0x6000f34c                __aeabi_lowlevel_memset
  .text.__sys_close
-                0x6000f382        0xc c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(__sys_close.o)
-                0x6000f382                __sys_close
+                0x6000f37e        0xc c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(__sys_close.o)
+                0x6000f37e                __sys_close
  .text.__sys_flen
-                0x6000f38e        0xc c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(__sys_flen.o)
-                0x6000f38e                __sys_flen
+                0x6000f38a        0xc c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(__sys_flen.o)
+                0x6000f38a                __sys_flen
  .text.__sys_istty
-                0x6000f39a        0xc c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(__sys_istty.o)
-                0x6000f39a                __sys_istty
+                0x6000f396        0xc c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(__sys_istty.o)
+                0x6000f396                __sys_istty
  .text.__sys_remove
-                0x6000f3a6        0xc c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(__sys_remove.o)
-                0x6000f3a6                __sys_remove
+                0x6000f3a2        0xc c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(__sys_remove.o)
+                0x6000f3a2                __sys_remove
  .text.__sys_seek
-                0x6000f3b2        0xc c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(__sys_seek.o)
-                0x6000f3b2                __sys_seek
+                0x6000f3ae        0xc c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(__sys_seek.o)
+                0x6000f3ae                __sys_seek
  .text.__sys_tmpnam
-                0x6000f3be        0xc c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(__sys_tmpnam.o)
-                0x6000f3be                __sys_tmpnam
+                0x6000f3ba        0xc c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(__sys_tmpnam.o)
+                0x6000f3ba                __sys_tmpnam
  .text.__sys_write
-                0x6000f3ca        0xc c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(__sys_write.o)
-                0x6000f3ca                __sys_write
+                0x6000f3c6        0xc c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(__sys_write.o)
+                0x6000f3c6                __sys_write
  *freertos*/tasks.o(SORT_BY_ALIGNMENT(.rodata*))
- *fill*         0x6000f3d6        0x2 ff
+ *fill*         0x6000f3d2        0x2 ff
  .rodata.vTaskStartScheduler.str1.4
-                0x6000f3d8        0x5 ./freertos/freertos_kernel/tasks.o
+                0x6000f3d4        0x5 ./freertos/freertos_kernel/tasks.o
  *(SORT_BY_ALIGNMENT(.rodata) SORT_BY_ALIGNMENT(.rodata.*) SORT_BY_ALIGNMENT(.constdata) SORT_BY_ALIGNMENT(.constdata.*))
- *fill*         0x6000f3dd        0x3 ff
+ *fill*         0x6000f3d9        0x3 ff
  .rodata.str1.4
-                0x6000f3e0      0x2ab ./source/FreeMasterbib.o
- *fill*         0x6000f68b        0x1 ff
+                0x6000f3dc      0x2ab ./source/FreeMasterbib.o
+ *fill*         0x6000f687        0x1 ff
  .rodata.fmstr_tsatable.11825
-                0x6000f68c      0x440 ./source/FreeMasterbib.o
+                0x6000f688      0x440 ./source/FreeMasterbib.o
  .rodata.main.str1.4
-                0x6000facc       0x2b ./source/Principal.o
- *fill*         0x6000faf7        0x1 ff
+                0x6000fac8       0x2b ./source/Principal.o
+ *fill*         0x6000faf3        0x1 ff
  .rodata.tabla_sen
-                0x6000faf8      0x400 ./source/TablasBusqueda.o
-                0x6000faf8                tabla_sen
+                0x6000faf4      0x400 ./source/TablasBusqueda.o
+                0x6000faf4                tabla_sen
  .rodata.tabla_sen90
-                0x6000fef8      0x800 ./source/TablasBusqueda.o
-                0x6000fef8                tabla_sen90
+                0x6000fef4      0x800 ./source/TablasBusqueda.o
+                0x6000fef4                tabla_sen90
  .rodata.xTimerCreateTimerTask.str1.4
-                0x600106f8        0x8 ./freertos/freertos_kernel/timers.o
+                0x600106f4        0x8 ./freertos/freertos_kernel/timers.o
  .rodata.prvCheckForValidListAndQueue.str1.4
-                0x60010700        0x5 ./freertos/freertos_kernel/timers.o
- *fill*         0x60010705        0x3 ff
+                0x600106fc        0x5 ./freertos/freertos_kernel/timers.o
+ *fill*         0x60010701        0x3 ff
  .rodata.FMSTR_GetPipe.str1.4
-                0x60010708       0x68 ./freemaster/freemaster_pipes.o
+                0x60010704       0x68 ./freemaster/freemaster_pipes.o
  .rodata.FMSTR_PipeFrame.str1.4
-                0x60010770       0x68 ./freemaster/freemaster_pipes.o
+                0x6001076c       0x68 ./freemaster/freemaster_pipes.o
  .rodata.FMSTR_Init.str1.4
-                0x600107d8       0xc5 ./freemaster/freemaster_protocol.o
- *fill*         0x6001089d        0x3 ff
+                0x600107d4       0xc5 ./freemaster/freemaster_protocol.o
+ *fill*         0x60010899        0x3 ff
  .rodata._FMSTR_GetBoardConfig.str1.4
-                0x600108a0       0x45 ./freemaster/freemaster_protocol.o
- *fill*         0x600108e5        0x3 ff
+                0x6001089c       0x45 ./freemaster/freemaster_protocol.o
+ *fill*         0x600108e1        0x3 ff
  .rodata.str1.4
-                0x600108e8       0x2b ./freemaster/freemaster_protocol.o
- *fill*         0x60010913        0x1 ff
+                0x600108e4       0x2b ./freemaster/freemaster_protocol.o
+ *fill*         0x6001090f        0x1 ff
  .rodata.fmstr_cfgParamNames.5818
-                0x60010914       0x2c ./freemaster/freemaster_protocol.o
+                0x60010910       0x2c ./freemaster/freemaster_protocol.o
  .rodata.FMSTR_InitRec.str1.4
-                0x60010940       0x11 ./freemaster/freemaster_rec.o
- *fill*         0x60010951        0x3 ff
+                0x6001093c       0x11 ./freemaster/freemaster_rec.o
+ *fill*         0x6001094d        0x3 ff
  .rodata.FMSTR_RecorderCreate.str1.4
-                0x60010954       0x2f ./freemaster/freemaster_rec.o
- *fill*         0x60010983        0x1 ff
+                0x60010950       0x2f ./freemaster/freemaster_rec.o
+ *fill*         0x6001097f        0x1 ff
  .rodata._FMSTR_RecMemCfg.str1.4
-                0x60010984      0x105 ./freemaster/freemaster_rec.o
- *fill*         0x60010a89        0x3 ff
+                0x60010980      0x105 ./freemaster/freemaster_rec.o
+ *fill*         0x60010a85        0x3 ff
  .rodata._FMSTR_RecVarCfg.str1.4
-                0x60010a8c       0x4b ./freemaster/freemaster_rec.o
- *fill*         0x60010ad7        0x1 ff
+                0x60010a88       0x4b ./freemaster/freemaster_rec.o
+ *fill*         0x60010ad3        0x1 ff
  .rodata.FMSTR_SERIAL
-                0x60010ad8        0xc ./freemaster/freemaster_serial.o
-                0x60010ad8                FMSTR_SERIAL
+                0x60010ad4        0xc ./freemaster/freemaster_serial.o
+                0x60010ad4                FMSTR_SERIAL
  .rodata._FMSTR_SerialInit.str1.4
-                0x60010ae4      0x3f2 ./freemaster/freemaster_serial.o
- *fill*         0x60010ed6        0x2 ff
+                0x60010ae0      0x3f2 ./freemaster/freemaster_serial.o
+ *fill*         0x60010ed2        0x2 ff
  .rodata.FMSTR_SERIAL_MCUX_LPUART
-                0x60010ed8       0x34 ./freemaster/freemaster_serial_lpuart.o
-                0x60010ed8                FMSTR_SERIAL_MCUX_LPUART
+                0x60010ed4       0x34 ./freemaster/freemaster_serial_lpuart.o
+                0x60010ed4                FMSTR_SERIAL_MCUX_LPUART
  .rodata.FMSTR_GetTsaInfo.str1.4
-                0x60010f0c       0x65 ./freemaster/freemaster_tsa.o
- *fill*         0x60010f71        0x3 ff
+                0x60010f08       0x65 ./freemaster/freemaster_tsa.o
+ *fill*         0x60010f6d        0x3 ff
  .rodata.FMSTR_GetStringLen.str1.4
-                0x60010f74       0x65 ./freemaster/freemaster_tsa.o
- *fill*         0x60010fd9        0x3 ff
+                0x60010f70       0x65 ./freemaster/freemaster_tsa.o
+ *fill*         0x60010fd5        0x3 ff
  .rodata._FMSTR_IsMemoryMapped.str1.4
-                0x60010fdc       0x2c ./freemaster/freemaster_tsa.o
+                0x60010fd8       0x2c ./freemaster/freemaster_tsa.o
  .rodata.FMSTR_UresControl.str1.4
-                0x60011008       0x65 ./freemaster/freemaster_ures.o
- *fill*         0x6001106d        0x3 ff
+                0x60011004       0x65 ./freemaster/freemaster_ures.o
+ *fill*         0x60011069        0x3 ff
  .rodata._FMSTR_UresControlRead.str1.4
-                0x60011070       0xce ./freemaster/freemaster_ures.o
- *fill*         0x6001113e        0x2 ff
+                0x6001106c       0xce ./freemaster/freemaster_ures.o
+ *fill*         0x6001113a        0x2 ff
  .rodata._FMSTR_UresControlWrite.str1.4
-                0x60011140       0xce ./freemaster/freemaster_ures.o
- *fill*         0x6001120e        0x2 ff
+                0x6001113c       0xce ./freemaster/freemaster_ures.o
+ *fill*         0x6001120a        0x2 ff
  .rodata._FMSTR_UresControlIoctl.str1.4
-                0x60011210       0xce ./freemaster/freemaster_ures.o
- *fill*         0x600112de        0x2 ff
+                0x6001120c       0xce ./freemaster/freemaster_ures.o
+ *fill*         0x600112da        0x2 ff
  .rodata._FMSTR_MemCpyDstAligned.str1.4
-                0x600112e0       0x25 ./freemaster/freemaster_utils.o
- *fill*         0x60011305        0x3 ff
+                0x600112dc       0x25 ./freemaster/freemaster_utils.o
+ *fill*         0x60011301        0x3 ff
  .rodata._FMSTR_MemCpySrcAligned.str1.4
-                0x60011308       0x25 ./freemaster/freemaster_utils.o
- *fill*         0x6001132d        0x3 ff
+                0x60011304       0x25 ./freemaster/freemaster_utils.o
+ *fill*         0x60011329        0x3 ff
  .rodata._FMSTR_MemCpyMaskedDstAligned.str1.4
-                0x60011330       0x25 ./freemaster/freemaster_utils.o
- *fill*         0x60011355        0x3 ff
+                0x6001132c       0x25 ./freemaster/freemaster_utils.o
+ *fill*         0x60011351        0x3 ff
  .rodata.FMSTR_GetAlignmentCorrection.str1.4
-                0x60011358       0x5d ./freemaster/freemaster_utils.o
- *fill*         0x600113b5        0x3 ff
+                0x60011354       0x5d ./freemaster/freemaster_utils.o
+ *fill*         0x600113b1        0x3 ff
  .rodata._FMSTR_RingBuffCreate.str1.4
-                0x600113b8       0x65 ./freemaster/freemaster_utils.o
- *fill*         0x6001141d        0x3 ff
+                0x600113b4       0x65 ./freemaster/freemaster_utils.o
+ *fill*         0x60011419        0x3 ff
  .rodata._FMSTR_RingBuffPut.str1.4
-                0x60011420       0x33 ./freemaster/freemaster_utils.o
- *fill*         0x60011453        0x1 ff
+                0x6001141c       0x33 ./freemaster/freemaster_utils.o
+ *fill*         0x6001144f        0x1 ff
  .rodata._FMSTR_RingBuffGet.str1.4
-                0x60011454       0x33 ./freemaster/freemaster_utils.o
- *fill*         0x60011487        0x1 ff
+                0x60011450       0x33 ./freemaster/freemaster_utils.o
+ *fill*         0x60011483        0x1 ff
  .rodata._FMSTR_RingBuffHasData.str1.4
-                0x60011488       0x33 ./freemaster/freemaster_utils.o
- *fill*         0x600114bb        0x1 ff
+                0x60011484       0x33 ./freemaster/freemaster_utils.o
+ *fill*         0x600114b7        0x1 ff
  .rodata._FMSTR_StrCmp.str1.4
-                0x600114bc       0x5f ./freemaster/freemaster_utils.o
- *fill*         0x6001151b        0x1 ff
+                0x600114b8       0x5f ./freemaster/freemaster_utils.o
+ *fill*         0x60011517        0x1 ff
  .rodata.CLOCK_ControlGate.str1.4
-                0x6001151c       0x21 ./drivers/fsl_adc.o
- *fill*         0x6001153d        0x3 ff
+                0x60011518       0x21 ./drivers/fsl_adc.o
+ *fill*         0x60011539        0x3 ff
  .rodata.ADC_GetChannelConversionValue.str1.4
-                0x60011540       0x53 ./drivers/fsl_adc.o
- *fill*         0x60011593        0x1 ff
+                0x6001153c       0x53 ./drivers/fsl_adc.o
+ *fill*         0x6001158f        0x1 ff
  .rodata.ADC_GetChannelStatusFlags.str1.4
-                0x60011594       0x53 ./drivers/fsl_adc.o
- *fill*         0x600115e7        0x1 ff
+                0x60011590       0x53 ./drivers/fsl_adc.o
+ *fill*         0x600115e3        0x1 ff
  .rodata.s_adcBases
-                0x600115e8        0xc ./drivers/fsl_adc.o
+                0x600115e4        0xc ./drivers/fsl_adc.o
  .rodata.s_adcClocks
-                0x600115f4        0x6 ./drivers/fsl_adc.o
- *fill*         0x600115fa        0x2 ff
+                0x600115f0        0x6 ./drivers/fsl_adc.o
+ *fill*         0x600115f6        0x2 ff
  .rodata.ADC_GetInstance.str1.4
-                0x600115fc       0x32 ./drivers/fsl_adc.o
- *fill*         0x6001162e        0x2 ff
+                0x600115f8       0x32 ./drivers/fsl_adc.o
+ *fill*         0x6001162a        0x2 ff
  .rodata.ADC_Init.str1.4
-                0x60011630       0x1f ./drivers/fsl_adc.o
- *fill*         0x6001164f        0x1 ff
+                0x6001162c       0x1f ./drivers/fsl_adc.o
+ *fill*         0x6001164b        0x1 ff
  .rodata.ADC_GetDefaultConfig.str1.4
-                0x60011650       0x20 ./drivers/fsl_adc.o
+                0x6001164c       0x20 ./drivers/fsl_adc.o
  .rodata.ADC_ETC_Init.str1.4
-                0x60011670       0x23 ./drivers/fsl_adc_etc.o
- *fill*         0x60011693        0x1 ff
+                0x6001166c       0x23 ./drivers/fsl_adc_etc.o
+ *fill*         0x6001168f        0x1 ff
  .rodata.ADC_ETC_SetTriggerConfig.str1.4
-                0x60011694       0x80 ./drivers/fsl_adc_etc.o
+                0x60011690       0x80 ./drivers/fsl_adc_etc.o
  .rodata.ADC_ETC_SetTriggerChainConfig.str1.4
-                0x60011714       0x5b ./drivers/fsl_adc_etc.o
- *fill*         0x6001176f        0x1 ff
+                0x60011710       0x5b ./drivers/fsl_adc_etc.o
+ *fill*         0x6001176b        0x1 ff
  .rodata.ADC_ETC_GetADCConversionValue.str1.4
-                0x60011770       0x5f ./drivers/fsl_adc_etc.o
- *fill*         0x600117cf        0x1 ff
+                0x6001176c       0x5f ./drivers/fsl_adc_etc.o
+ *fill*         0x600117cb        0x1 ff
  .rodata.CLOCK_InitExternalClk.str1.4
-                0x600117d0       0x22 ./drivers/fsl_clock.o
- *fill*         0x600117f2        0x2 ff
- .rodata        0x600117f4      0x144 ./drivers/fsl_clock.o
+                0x600117cc       0x22 ./drivers/fsl_clock.o
+ *fill*         0x600117ee        0x2 ff
+ .rodata        0x600117f0      0x144 ./drivers/fsl_clock.o
  .rodata.CLOCK_GetPllFreq.str1.4
-                0x60011938       0x6e ./drivers/fsl_clock.o
+                0x60011934       0x6e ./drivers/fsl_clock.o
  .rodata.CLOCK_ControlGate.str1.4
-                0x600119a6       0x21 ./drivers/fsl_gpio.o
- *fill*         0x600119a6        0x2 ff
+                0x600119a2       0x21 ./drivers/fsl_gpio.o
+ *fill*         0x600119a2        0x2 ff
  .rodata.s_gpioBases
-                0x600119a8       0x28 ./drivers/fsl_gpio.o
+                0x600119a4       0x28 ./drivers/fsl_gpio.o
  .rodata.s_gpioClock
-                0x600119d0        0xc ./drivers/fsl_gpio.o
+                0x600119cc        0xc ./drivers/fsl_gpio.o
  .rodata.GPIO_GetInstance.str1.4
-                0x600119dc       0x34 ./drivers/fsl_gpio.o
+                0x600119d8       0x34 ./drivers/fsl_gpio.o
  .rodata.GPIO_PinWrite.str1.4
-                0x60011a10       0x1c ./drivers/fsl_gpio.o
+                0x60011a0c       0x1c ./drivers/fsl_gpio.o
  .rodata.CLOCK_ControlGate.str1.4
-                0x60011a2c       0x21 ./drivers/fsl_lpuart.o
+                0x60011a28       0x21 ./drivers/fsl_lpuart.o
  .rodata.s_lpuartBases
-                0x60011a2c       0x24 ./drivers/fsl_lpuart.o
+                0x60011a28       0x24 ./drivers/fsl_lpuart.o
  .rodata.s_lpuartClock
-                0x60011a50       0x12 ./drivers/fsl_lpuart.o
- *fill*         0x60011a62        0x2 ff
+                0x60011a4c       0x12 ./drivers/fsl_lpuart.o
+ *fill*         0x60011a5e        0x2 ff
  .rodata.LPUART_GetInstance.str1.4
-                0x60011a64       0x39 ./drivers/fsl_lpuart.o
- *fill*         0x60011a9d        0x3 ff
+                0x60011a60       0x39 ./drivers/fsl_lpuart.o
+ *fill*         0x60011a99        0x3 ff
  .rodata.LPUART_Init.str1.4
-                0x60011aa0      0x10c ./drivers/fsl_lpuart.o
+                0x60011a9c      0x10c ./drivers/fsl_lpuart.o
  .rodata.LPUART_GetDefaultConfig.str1.4
-                0x60011bac       0x23 ./drivers/fsl_lpuart.o
+                0x60011ba8       0x23 ./drivers/fsl_lpuart.o
  .rodata.CLOCK_ControlGate.str1.4
-                0x60011bcf       0x21 ./drivers/fsl_pwm.o
- *fill*         0x60011bcf        0x1 ff
+                0x60011bcb       0x21 ./drivers/fsl_pwm.o
+ *fill*         0x60011bcb        0x1 ff
  .rodata.s_pwmBases
-                0x60011bd0       0x14 ./drivers/fsl_pwm.o
+                0x60011bcc       0x14 ./drivers/fsl_pwm.o
  .rodata.s_pwmClocks
-                0x60011be4       0x28 ./drivers/fsl_pwm.o
+                0x60011be0       0x28 ./drivers/fsl_pwm.o
  .rodata.PWM_GetInstance.str1.4
-                0x60011c0c       0x32 ./drivers/fsl_pwm.o
- *fill*         0x60011c3e        0x2 ff
+                0x60011c08       0x32 ./drivers/fsl_pwm.o
+ *fill*         0x60011c3a        0x2 ff
  .rodata.PWM_Init.str1.4
-                0x60011c40       0x47 ./drivers/fsl_pwm.o
- *fill*         0x60011c87        0x1 ff
+                0x60011c3c       0x47 ./drivers/fsl_pwm.o
+ *fill*         0x60011c83        0x1 ff
  .rodata.PWM_GetDefaultConfig.str1.4
-                0x60011c88       0x18 ./drivers/fsl_pwm.o
+                0x60011c84       0x18 ./drivers/fsl_pwm.o
  .rodata.CLOCK_ControlGate.str1.4
-                0x60011ca0       0x21 ./drivers/fsl_xbara.o
+                0x60011c9c       0x21 ./drivers/fsl_xbara.o
  .rodata.XBARA_GetInstance.str1.4
-                0x60011ca0       0x36 ./drivers/fsl_xbara.o
- *fill*         0x60011cd6        0x2 ff
+                0x60011c9c       0x36 ./drivers/fsl_xbara.o
+ *fill*         0x60011cd2        0x2 ff
  .rodata.BOARD_ConfigMPU.str1.4
-                0x60011cd8       0x6a ./board/board.o
- *fill*         0x60011d42        0x2 ff
+                0x60011cd4       0x6a ./board/board.o
+ *fill*         0x60011d3e        0x2 ff
  .rodata.CLOCK_SetMux.str1.4
-                0x60011d44       0x6f ./board/clock_config.o
- *fill*         0x60011db3        0x1 ff
+                0x60011d40       0x6f ./board/clock_config.o
+ *fill*         0x60011daf        0x1 ff
  .rodata.CLOCK_SetDiv.str1.4
-                0x60011db4       0x6f ./board/clock_config.o
- *fill*         0x60011e23        0x1 ff
+                0x60011db0       0x6f ./board/clock_config.o
+ *fill*         0x60011e1f        0x1 ff
  .rodata.CLOCK_ControlGate.str1.4
-                0x60011e24       0x5e ./board/clock_config.o
- *fill*         0x60011e82        0x2 ff
+                0x60011e20       0x5e ./board/clock_config.o
+ *fill*         0x60011e7e        0x2 ff
  .rodata.armPllConfig_BOARD_BootClockRUN
-                0x60011e84        0x8 ./board/clock_config.o
-                0x60011e84                armPllConfig_BOARD_BootClockRUN
+                0x60011e80        0x8 ./board/clock_config.o
+                0x60011e80                armPllConfig_BOARD_BootClockRUN
  .rodata.sysPllConfig_BOARD_BootClockRUN
-                0x60011e8c       0x14 ./board/clock_config.o
-                0x60011e8c                sysPllConfig_BOARD_BootClockRUN
+                0x60011e88       0x14 ./board/clock_config.o
+                0x60011e88                sysPllConfig_BOARD_BootClockRUN
  .rodata.CLOCK_ControlGate.str1.4
-                0x60011ea0       0x5e ./board/pin_mux.o
+                0x60011e9c       0x5e ./board/pin_mux.o
  .rodata.__num_Ciob_streams
-                0x60011ea0        0x4 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(__ciob.o)
-                0x60011ea0                __num_Ciob_streams
+                0x60011e9c        0x4 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(__ciob.o)
+                0x60011e9c                __num_Ciob_streams
  .rodata.__assertion_failed.str1.1
-                0x60011ea4       0x15 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(_cr_assert.o)
+                0x60011ea0       0x15 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_semihost_nf.a(_cr_assert.o)
  .rodata._Csys_alloc.str1.1
-                0x60011eb9       0x18 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(alloc.o)
+                0x60011eb5       0x18 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(alloc.o)
  .rodata._initio.str1.1
-                0x60011ed1        0x4 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(initio.o)
-                0x60011f00                . = ALIGN (0x4)
- *fill*         0x60011ed5        0x3 ff
+                0x60011ecd        0x4 c:/nxp/mcuxpressoide_11.3.1_5262/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libcr_c.a(initio.o)
+                0x60011efc                . = ALIGN (0x4)
+ *fill*         0x60011ed1        0x3 ff
 
-.glue_7         0x60011ed8        0x0
- .glue_7        0x60011ed8        0x0 linker stubs
+.glue_7         0x60011ed4        0x0
+ .glue_7        0x60011ed4        0x0 linker stubs
 
-.glue_7t        0x60011ed8        0x0
- .glue_7t       0x60011ed8        0x0 linker stubs
+.glue_7t        0x60011ed4        0x0
+ .glue_7t       0x60011ed4        0x0 linker stubs
 
-.vfp11_veneer   0x60011ed8        0x0
- .vfp11_veneer  0x60011ed8        0x0 linker stubs
+.vfp11_veneer   0x60011ed4        0x0
+ .vfp11_veneer  0x60011ed4        0x0 linker stubs
 
-.v4_bx          0x60011ed8        0x0
- .v4_bx         0x60011ed8        0x0 linker stubs
+.v4_bx          0x60011ed4        0x0
+ .v4_bx         0x60011ed4        0x0 linker stubs
 
-.iplt           0x60011ed8        0x0
- .iplt          0x60011ed8        0x0 ./xip/evkmimxrt1060_flexspi_nor_config.o
+.iplt           0x60011ed4        0x0
+ .iplt          0x60011ed4        0x0 ./xip/evkmimxrt1060_flexspi_nor_config.o
 
-.rel.dyn        0x60011ed8        0x0
- .rel.iplt      0x60011ed8        0x0 ./xip/evkmimxrt1060_flexspi_nor_config.o
+.rel.dyn        0x60011ed4        0x0
+ .rel.iplt      0x60011ed4        0x0 ./xip/evkmimxrt1060_flexspi_nor_config.o
 
 .ARM.extab
  *(SORT_BY_ALIGNMENT(.ARM.extab*) SORT_BY_ALIGNMENT(.gnu.linkonce.armextab.*))
 
-.ARM.exidx      0x60011ed8        0x0
-                0x60011ed8                __exidx_start = .
+.ARM.exidx      0x60011ed4        0x0
+                0x60011ed4                __exidx_start = .
  *(SORT_BY_ALIGNMENT(.ARM.exidx*) SORT_BY_ALIGNMENT(.gnu.linkonce.armexidx.*))
-                0x60011ed8                __exidx_end = .
-                0x60011ed8                _etext = .
+                0x60011ed4                __exidx_end = .
+                0x60011ed4                _etext = .
 
-.data_RAM2      0x00000000        0x0 load address 0x60011ed8
+.data_RAM2      0x00000000        0x0 load address 0x60011ed4
  FILL mask 0xff
                 [!provide]                PROVIDE (__start_data_RAM2 = .)
                 [!provide]                PROVIDE (__start_data_SRAM_ITC = .)
@@ -6207,7 +6207,7 @@ END GROUP
                 [!provide]                PROVIDE (__end_data_RAM2 = .)
                 [!provide]                PROVIDE (__end_data_SRAM_ITC = .)
 
-.data_RAM3      0x20200000        0x0 load address 0x60011ed8
+.data_RAM3      0x20200000        0x0 load address 0x60011ed4
  FILL mask 0xff
                 [!provide]                PROVIDE (__start_data_RAM3 = .)
                 [!provide]                PROVIDE (__start_data_SRAM_OC = .)
@@ -6221,7 +6221,7 @@ END GROUP
                 [!provide]                PROVIDE (__end_data_RAM3 = .)
                 [!provide]                PROVIDE (__end_data_SRAM_OC = .)
 
-.data_RAM4      0x80000000        0x0 load address 0x60011ed8
+.data_RAM4      0x80000000        0x0 load address 0x60011ed4
  FILL mask 0xff
                 [!provide]                PROVIDE (__start_data_RAM4 = .)
                 [!provide]                PROVIDE (__start_data_BOARD_SDRAM = .)
@@ -6235,7 +6235,7 @@ END GROUP
                 [!provide]                PROVIDE (__end_data_RAM4 = .)
                 [!provide]                PROVIDE (__end_data_BOARD_SDRAM = .)
 
-.data_RAM5      0x81e00000        0x0 load address 0x60011ed8
+.data_RAM5      0x81e00000        0x0 load address 0x60011ed4
  FILL mask 0xff
                 [!provide]                PROVIDE (__start_data_RAM5 = .)
                 [!provide]                PROVIDE (__start_data_NCACHE_REGION = .)
@@ -6256,7 +6256,7 @@ END GROUP
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _end_uninit_RESERVED = .
 
-.data           0x20000000       0x70 load address 0x60011ed8
+.data           0x20000000       0x70 load address 0x60011ed4
  FILL mask 0xff
                 0x20000000                _data = .
                 [!provide]                PROVIDE (__start_data_RAM = .)
@@ -6289,7 +6289,7 @@ END GROUP
                 [!provide]                PROVIDE (__end_data_RAM = .)
                 [!provide]                PROVIDE (__end_data_SRAM_DTC = .)
 
-.igot.plt       0x20000070        0x0 load address 0x60011f48
+.igot.plt       0x20000070        0x0 load address 0x60011f44
  .igot.plt      0x20000070        0x0 ./xip/evkmimxrt1060_flexspi_nor_config.o
 
 .bss_RAM2       0x00000000        0x0
@@ -6601,8 +6601,8 @@ END GROUP
                 0x2001f000                . = ALIGN (0x4)
                 0x20020000                _vStackTop = (. + _StackSize)
                 0x60002000                _image_start = LOADADDR (.text)
-                0x60011f48                _image_end = (LOADADDR (.data) + SIZEOF (.data))
-                0x0000ff48                _image_size = (_image_end - _image_start)
+                0x60011f44                _image_end = (LOADADDR (.data) + SIZEOF (.data))
+                0x0000ff44                _image_size = (_image_end - _image_start)
 OUTPUT(VSG_Control.axf elf32-littlearm)
 LOAD linker stubs
 
