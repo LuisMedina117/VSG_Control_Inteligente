@@ -40,7 +40,7 @@
 #define GPIOmed2	GPIO1
 #define PINmed2		(3U)	// {D8}
 #define GPIOintc	GPIO1
-#define PINintc		(23U)	// {D0}
+#define PINintc		(0U)	// {D15}
 
 /*******************************************************************************
  * Prototipos

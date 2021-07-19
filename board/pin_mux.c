@@ -288,9 +288,9 @@ void BOARD_InitPins(void) {
 	// Pin 2 para medición de tiempo de ejecución   ----------   [GPIO 1, pin 3] {D8}
 	IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B0_03_GPIO1_IO03, 0U);
 	IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B0_03_GPIO1_IO03, config_pines);
-	// Pin para control de interruptor de conexión -----------   [GPIO 1, pin23] {D0}
-	IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_07_GPIO1_IO23, 0U);
-	IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B1_07_GPIO1_IO23, config_pines);
+	// Pin para control de interruptor de conexión -----------   [GPIO 1, pin 0] {D15}
+	IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B0_00_GPIO1_IO00, 0U);
+	IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B0_00_GPIO1_IO00, config_pines);
 
 	// Configuración de pines para PWM -------------------------------------------------------------
 	IOMUXC_SetPinMux(IOMUXC_GPIO_SD_B0_00_FLEXPWM1_PWMA00, 0U);	// ----- [PWM1, módulo 0, canal A] {D13}
@@ -322,8 +322,8 @@ void BOARD_InitPins(void) {
 	IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B1_11_GPIO1_IO27, config_ADC);
 	IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_04_GPIO1_IO20, 0U);	// ----- [ADC1, canal  9] {A2}
 	IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B1_04_GPIO1_IO20, config_ADC);
-	IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_05_GPIO1_IO21, 0U);	// ----- [ADC2, canal 10] {A3}
-	IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B1_05_GPIO1_IO21, config_ADC);
+	IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_07_GPIO1_IO23, 0U);	// ----- [ADC2, canal 12] {D0}
+	IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B1_07_GPIO1_IO23, config_ADC);
 	IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_01_GPIO1_IO17, 0U);	// ----- [ADC2, canal  6] {A4}
 	IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B1_01_GPIO1_IO17, config_ADC);
 	IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_00_GPIO1_IO16, 0U);	// ----- [ADC2, canal  5] {A5}

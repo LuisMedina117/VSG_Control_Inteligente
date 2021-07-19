@@ -33,7 +33,7 @@
 #define Canal_vCa 15U	// ADC1
 #define Canal_vCb  0U	// ADC1
 #define Canal_vCc  9U	// ADC1
-#define Canal_iFa 10U	// ADC2
+#define Canal_iFa 12U	// ADC2
 #define Canal_iFb  6U	// ADC2
 #define Canal_iFc  5U	// ADC2
 #define Canal_iGa  8U	// ADC1
