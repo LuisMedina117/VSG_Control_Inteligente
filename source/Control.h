@@ -103,7 +103,7 @@ struct CV_VariablesControl{
 	float aId;
 	float aIq;
 };
-#define CV_kp	0.125f		// kp=0.125
+#define CV_kp	3.125f		// kp=0.125
 #define CV_kih	0.4315f		// ki=4315, h=1e-4
 #define CV_htr	0.3452f		// Cte. de tiempo de seguimiento tr = 10Ti = 10kp/ki, h=1e-4
 #define param_cF 0.031269f	// Valor del capacitor del filtro en pu

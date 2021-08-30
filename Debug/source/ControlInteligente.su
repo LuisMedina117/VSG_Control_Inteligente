@@ -1,0 +1,7 @@
+ControlInteligente.c:35:6:Difusificar	32	static
+ControlInteligente.c:75:6:Antecedentes_3x3	40	static
+ControlInteligente.c:95:6:Antecedentes_3x3x3	40	static
+ControlInteligente.c:122:7:Consecuentes_3x3	40	static
+ControlInteligente.c:138:7:Consecuentes_3x3x3	56	static
+ControlInteligente.c:157:6:ANFIS_3x3	104	static
+ControlInteligente.c:176:6:ANFIS_3x3x3	200	static

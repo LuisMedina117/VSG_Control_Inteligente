@@ -42,7 +42,7 @@ source/Principal.o source/Principal.d: ../source/Principal.c \
  D:\Documentos\ HDD\GIT\VSG_Control\freemaster/freemaster_rec.h \
  D:\Documentos\ HDD\GIT\VSG_Control\freemaster/freemaster_ures.h \
  D:\Documentos\ HDD\GIT\VSG_Control\freemaster/freemaster_serial_lpuart.h \
- ../source/freemaster_cfg.h
+ ../source/freemaster_cfg.h ../source/ControlInteligente.h
 
 D:\Documentos\ HDD\GIT\VSG_Control\board/board.h:
 
@@ -141,3 +141,5 @@ D:\Documentos\ HDD\GIT\VSG_Control\freemaster/freemaster_ures.h:
 D:\Documentos\ HDD\GIT\VSG_Control\freemaster/freemaster_serial_lpuart.h:
 
 ../source/freemaster_cfg.h:
+
+../source/ControlInteligente.h:

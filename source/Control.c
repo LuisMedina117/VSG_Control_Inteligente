@@ -188,7 +188,7 @@ void LazoTension(){
 	float temp1, temp2;
 
 	// Ponte pin GPIO en alto
-	GPIO_PinWrite(GPIOmed2, PINmed2, 1U);
+//	GPIO_PinWrite(GPIOmed2, PINmed2, 1U);
 
 	// Transforma las variables medidas al marco de referencia síncrono
 	calculaDQ();
@@ -236,7 +236,7 @@ void LazoTension(){
 	pq_fltr.qU_1 = temp2;*/
 
 	// Pone pin GPIO en bajo
-	GPIO_PinWrite(GPIOmed2, PINmed2, 0U);
+//	GPIO_PinWrite(GPIOmed2, PINmed2, 0U);
 }
 
 // -------------------- Función de acondicionamiento --------------------

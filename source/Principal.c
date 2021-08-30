@@ -18,6 +18,19 @@
 #include "FreeMasterbib.h"
 #include "freemaster_cfg.h"
 
+#include "ControlInteligente.h"
+extern const VariableLing_3 vl_soc;
+extern const VariableLing_3 vl_wf;
+extern const VariableLing_3 vl_xe;
+extern const VariableLing_3 vl_iF;
+extern const VariableLing_3 vl_vI;
+extern const VariableLing_3 vl_wd;
+extern const VariableLing_3 vl_Ta;
+extern const VariableLing_3 vl_xp;
+extern const coef_cons_3x3 coef_pE[3];
+extern const coef_cons_3x3x3 coef_pP[1];
+extern const coef_cons_3x3x3 coef_pR[4];
+
 /*******************************************************************************
  * Definiciones
  ******************************************************************************/
@@ -61,7 +74,7 @@ int main(void) {
     ADC_ETC_Config();
 
     // Crea las tareas
-	xTaskCreate(ParpadeoLED, "Parpadeo LED", configMINIMAL_STACK_SIZE, NULL, PRIO_LED,  NULL);
+	xTaskCreate(ParpadeoLED, "Parpadeo LED", configMINIMAL_STACK_SIZE+100U, NULL, PRIO_LED,  NULL);
 	xTaskCreate(ComFreeMaster, "Com. FreeMaster", configMINIMAL_STACK_SIZE+100U, NULL, PRIO_ComFM, NULL);
 	xTaskCreate(ModeloGenerador, "Modelo VSG", configMINIMAL_STACK_SIZE, NULL, PRIO_ModeloVSG, NULL);
 
@@ -81,10 +94,21 @@ static void ParpadeoLED(void* param){
 	TickType_t tiempo_ej_ant;
 	// Inicializa tiempo de ejecución anterior
 	tiempo_ej_ant = xTaskGetTickCount();
+	float politicaE[3];
+	float politicaP[1];
+	float politicaR[4];
 	// Entra al ciclo infinito de la tarea
 	for(;;){
+
+		//GPIO_PinWrite(GPIOmed2, PINmed2, 1U);
+		ANFIS_3x3(0.35, 0.997, vl_soc, vl_wf, coef_pE, 3, politicaE);
+		ANFIS_3x3x3(politicaE[2], 1.7, 0.89, vl_xe, vl_iF, vl_vI, coef_pP, 1, politicaP);
+		ANFIS_3x3x3(0.2, 0.5, politicaP[0], vl_wd, vl_Ta, vl_xp, coef_pR, 4, politicaR);
+		//GPIO_PinWrite(GPIOmed2, PINmed2, 0U);
+		GPIO_PortToggle(GPIOmed2, 1U << PINmed2);
+
 		ConmutaLED();
-		vTaskDelayUntil(&tiempo_ej_ant, PERIODO_LEDvida);
+		//vTaskDelayUntil(&tiempo_ej_ant, PERIODO_LEDvida);
 	}
 }
 
