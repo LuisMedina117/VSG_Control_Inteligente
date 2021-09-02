@@ -236,8 +236,3 @@ float satura(float variable, float limite){
 	else
 		return variable;
 }
-
-// ---------- Filtro de variables -----------
-// Filtro de variables para modelo del VSG
-void Filtro_variables(void){
-}

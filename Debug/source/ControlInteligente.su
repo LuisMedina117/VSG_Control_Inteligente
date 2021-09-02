@@ -1,0 +1,9 @@
+ControlInteligente.c:23:6:Difusificar	32	static
+ControlInteligente.c:63:6:Antecedentes_3x3	40	static
+ControlInteligente.c:83:6:Antecedentes_3x3x3	40	static
+ControlInteligente.c:110:7:Consecuentes_3x3	40	static
+ControlInteligente.c:126:7:Consecuentes_3x3x3	56	static
+ControlInteligente.c:145:6:ANFIS_3x3	104	static
+ControlInteligente.c:164:6:ANFIS_3x3x3	200	static
+ControlInteligente.c:187:6:AcondicionaSalida	40	static
+ControlInteligente.c:198:7:Tanh_aprx	24	static

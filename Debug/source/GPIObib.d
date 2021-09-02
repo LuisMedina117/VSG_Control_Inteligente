@@ -27,7 +27,11 @@ source/GPIObib.o source/GPIObib.d: ../source/GPIObib.c \
  ../source/DfnGlb.h ../source/Control.h ../source/ProMed.h \
  ../source/PWMbib.h D:\Documentos\ HDD\GIT\VSG_Control\drivers/fsl_pwm.h \
  D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/task.h \
- D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/list.h
+ D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/list.h \
+ D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/semphr.h \
+ D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/queue.h \
+ D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/task.h \
+ ../source/ControlInteligente.h
 
 ../source/GPIObib.h:
 
@@ -92,3 +96,11 @@ D:\Documentos\ HDD\GIT\VSG_Control\drivers/fsl_pwm.h:
 D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/task.h:
 
 D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/list.h:
+
+D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/semphr.h:
+
+D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/queue.h:
+
+D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/task.h:
+
+../source/ControlInteligente.h:

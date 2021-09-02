@@ -28,7 +28,10 @@ source/Control.o source/Control.d: ../source/Control.c \
  D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/mpu_wrappers.h \
  D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/task.h \
  D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/list.h \
- ../source/GPIObib.h
+ D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/semphr.h \
+ D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/queue.h \
+ D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/task.h \
+ ../source/GPIObib.h ../source/ControlInteligente.h
 
 ../source/Control.h:
 
@@ -92,4 +95,12 @@ D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/task.h:
 
 D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/list.h:
 
+D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/semphr.h:
+
+D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/queue.h:
+
+D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/task.h:
+
 ../source/GPIObib.h:
+
+../source/ControlInteligente.h:

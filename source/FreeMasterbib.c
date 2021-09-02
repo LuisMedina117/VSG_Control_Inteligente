@@ -2,7 +2,7 @@
  *  Funciones para FreeMaster
  *  Versión para IMX RT1060
  *
- *  Modificado: 18 abr. 2021
+ *  Modificado: 1 sep. 2021
  *      Author: Luis Medina ;)
  */
 
@@ -23,6 +23,7 @@ extern struct VectorSinc vIr;
 extern struct VectorSinc iGr;
 
 extern struct VarMarcoSincrono var_dq;
+extern struct VarProt var_prot;
 extern struct CI_VariablesControl lazo_I;
 extern struct CV_VariablesControl lazo_V;
 extern struct VSG_VariablesEstado vsg_ve;
@@ -108,6 +109,12 @@ FMSTR_TSA_MEMBER(struct VarMarcoSincrono, iGd,	FMSTR_TSA_FLOAT)
 FMSTR_TSA_MEMBER(struct VarMarcoSincrono, iGq,	FMSTR_TSA_FLOAT)
 FMSTR_TSA_RO_VAR(var_dq, FMSTR_TSA_USERTYPE(struct VarMarcoSincrono))
 
+// Estructura de variables de protección
+FMSTR_TSA_STRUCT(struct VarProt)
+FMSTR_TSA_MEMBER(struct VarProt, iFmag,	FMSTR_TSA_FLOAT)
+FMSTR_TSA_MEMBER(struct VarProt, lim_iF,FMSTR_TSA_FLOAT)
+FMSTR_TSA_RO_VAR(var_prot, FMSTR_TSA_USERTYPE(struct VarProt))
+
 // Estructura de variables de control de corriente
 FMSTR_TSA_STRUCT(struct CI_VariablesControl)
 FMSTR_TSA_MEMBER(struct CI_VariablesControl, iFdr,	FMSTR_TSA_FLOAT)
@@ -137,6 +144,7 @@ FMSTR_TSA_MEMBER(struct VSG_VariablesEstado, xe,		FMSTR_TSA_FLOAT)
 FMSTR_TSA_ENUM(enum ESTADO)
 FMSTR_TSA_CONST(Sincronizacion)
 FMSTR_TSA_CONST(Emulando)
+FMSTR_TSA_CONST(Espera)
 FMSTR_TSA_MEMBER(struct VSG_VariablesEstado, estado, FMSTR_TSA_USERTYPE(ESTADO))
 
 // Estructura de variables de entrada del VSG
@@ -146,6 +154,7 @@ FMSTR_TSA_MEMBER(struct VSG_Entradas, pe, 		FMSTR_TSA_FLOAT)
 FMSTR_TSA_MEMBER(struct VSG_Entradas, pref, 	FMSTR_TSA_FLOAT)
 FMSTR_TSA_MEMBER(struct VSG_Entradas, qe, 		FMSTR_TSA_FLOAT)
 FMSTR_TSA_MEMBER(struct VSG_Entradas, qref, 	FMSTR_TSA_FLOAT)
+FMSTR_TSA_MEMBER(struct VSG_Entradas, qri, 		FMSTR_TSA_FLOAT)
 FMSTR_TSA_MEMBER(struct VSG_Entradas, wref, 	FMSTR_TSA_FLOAT)
 FMSTR_TSA_MEMBER(struct VSG_Entradas, vpcc, 	FMSTR_TSA_FLOAT)
 FMSTR_TSA_MEMBER(struct VSG_Entradas, H,		FMSTR_TSA_FLOAT)
