@@ -49,6 +49,5 @@ void ActualizaCU(void);
 void calculaDQ(void);
 int16_t seno_LookUp(uint16_t);
 float satura(float,float);
-void Filtro_variables(void);
 
 #endif /* PROMED_H_ */

@@ -12,7 +12,6 @@
  * Variables
  ******************************************************************************/
 extern int16_t VCa_i16, VCb_i16, VCc_i16, IFa_i16, IFb_i16, IFc_i16, IGa_i16, IGb_i16, IGc_i16;
-extern struct VSG_VariablesEstado vsg_ve;
 
 /*******************************************************************************
  * Código
@@ -160,16 +159,8 @@ void ManejadorIRQadc_etc(void){
 	IGb_i16 = ADC_ETC_GetADCConversionValue(ADC_ETC, 4U, Grupo_iGb) - OFFSET_IG;
 	IGc_i16 = ADC_ETC_GetADCConversionValue(ADC_ETC, 0U, Grupo_iGc) - OFFSET_IG;
 
-	// Habilita controles si el inversor ya está sincronizado
-	if(vsg_ve.estado == Emulando){
-		LazoTension();
-		LazoCorriente();
-		ActualizaCU();
-		Acondicionamiento();
-	}
-	else{
-		Sincroniza();
-	}
+	// Sincroniza ejecución del control de bajo nivel
+	ControlBajoNivel();
 
 	// Barrera de sincronización
     SDK_ISR_EXIT_BARRIER;

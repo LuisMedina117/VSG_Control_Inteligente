@@ -18,28 +18,16 @@
 #include "FreeMasterbib.h"
 #include "freemaster_cfg.h"
 
-#include "ControlInteligente.h"
-extern const VariableLing_3 vl_soc;
-extern const VariableLing_3 vl_wf;
-extern const VariableLing_3 vl_xe;
-extern const VariableLing_3 vl_iF;
-extern const VariableLing_3 vl_vI;
-extern const VariableLing_3 vl_wd;
-extern const VariableLing_3 vl_Ta;
-extern const VariableLing_3 vl_xp;
-extern const coef_cons_3x3 coef_pE[3];
-extern const coef_cons_3x3x3 coef_pP[1];
-extern const coef_cons_3x3x3 coef_pR[4];
-
 /*******************************************************************************
  * Definiciones
  ******************************************************************************/
 // Prioridades de tareas
+#define PRIO_ComFM 			(configMAX_PRIORITIES - 1)
+#define PRIO_CtrlIntel 		(configMAX_PRIORITIES - 2)
 #define PRIO_ModeloVSG 		(configMAX_PRIORITIES - 3)
-#define PRIO_ComFM 			(configMAX_PRIORITIES - 2)
 #define PRIO_LED 			(configMAX_PRIORITIES - 4)
 
-#define PERIODO_LEDvida pdMS_TO_TICKS(1000)	// Periodo de parpadeo del LED
+#define PERIODO_LEDvida pdMS_TO_TICKS(500)	// Periodo de parpadeo del LED
 #define PERIODO_COMMS 	pdMS_TO_TICKS(1)	// Periodo de comunicación con FreeMaster
 
 /*******************************************************************************
@@ -48,10 +36,20 @@ extern const coef_cons_3x3x3 coef_pR[4];
 static void ParpadeoLED(void*);
 static void ComFreeMaster(void*);
 extern void ModeloGenerador(void*);
+extern void ControladorInteligente(void*);
+
+static void TareaTemporal(void*);//######################################################################################
 
 /*******************************************************************************
  * Variables Globales
  ******************************************************************************/
+// Semáforos para tareas de control inteligente y emulación
+extern SemaphoreHandle_t semaforo_VSG;
+extern SemaphoreHandle_t semaforo_AltoNivel;
+// Estructura de estado del generador
+extern struct VSG_VariablesEstado vsg_ve;
+
+TaskHandle_t Handle_TareaTemp;//#########################################################################################
 
 /*******************************************************************************
  * Código
@@ -73,10 +71,20 @@ int main(void) {
     ADC_Config();
     ADC_ETC_Config();
 
+    // Crea los semáforos
+    semaforo_VSG = xSemaphoreCreateBinary();
+    semaforo_AltoNivel = xSemaphoreCreateBinary();
+
     // Crea las tareas
-	xTaskCreate(ParpadeoLED, "Parpadeo LED", configMINIMAL_STACK_SIZE+100U, NULL, PRIO_LED,  NULL);
+	xTaskCreate(ParpadeoLED, "Parpadeo LED", configMINIMAL_STACK_SIZE, NULL, PRIO_LED,  NULL);
 	xTaskCreate(ComFreeMaster, "Com. FreeMaster", configMINIMAL_STACK_SIZE+100U, NULL, PRIO_ComFM, NULL);
 	xTaskCreate(ModeloGenerador, "Modelo VSG", configMINIMAL_STACK_SIZE, NULL, PRIO_ModeloVSG, NULL);
+	xTaskCreate(ControladorInteligente, "Ctrl Inteligente", configMINIMAL_STACK_SIZE+100U, NULL, PRIO_CtrlIntel, NULL);
+
+
+	if(vsg_ve.estado == Emulando){//#####################################################################################
+		xTaskCreate(TareaTemporal, "Inicio", configMINIMAL_STACK_SIZE, NULL, configMAX_PRIORITIES,  &Handle_TareaTemp);
+	}
 
     // Inicia el SO
 	vTaskStartScheduler();
@@ -88,27 +96,26 @@ int main(void) {
     return 0;
 }
 
+// ---------- Tarea temporal de inicilo -----------
+static void TareaTemporal(void* param){//################################################################################
+	// Si se salta la sincronización para hacer pruebas de desarrollo,
+	// habilita el semáforo de control de alto nivel
+	if(vsg_ve.estado == Emulando){
+		xSemaphoreGive(semaforo_AltoNivel);
+	}
+	// Elimina la tarea temporal
+	vTaskDelete(Handle_TareaTemp);
+}
 
 // ---------- Tarea para parpadeo de LED -----------
 static void ParpadeoLED(void* param){
 	TickType_t tiempo_ej_ant;
 	// Inicializa tiempo de ejecución anterior
 	tiempo_ej_ant = xTaskGetTickCount();
-	float politicaE[3];
-	float politicaP[1];
-	float politicaR[4];
 	// Entra al ciclo infinito de la tarea
 	for(;;){
-
-		//GPIO_PinWrite(GPIOmed2, PINmed2, 1U);
-		ANFIS_3x3(0.35, 0.997, vl_soc, vl_wf, coef_pE, 3, politicaE);
-		ANFIS_3x3x3(politicaE[2], 1.7, 0.89, vl_xe, vl_iF, vl_vI, coef_pP, 1, politicaP);
-		ANFIS_3x3x3(0.2, 0.5, politicaP[0], vl_wd, vl_Ta, vl_xp, coef_pR, 4, politicaR);
-		//GPIO_PinWrite(GPIOmed2, PINmed2, 0U);
-		GPIO_PortToggle(GPIOmed2, 1U << PINmed2);
-
 		ConmutaLED();
-		//vTaskDelayUntil(&tiempo_ej_ant, PERIODO_LEDvida);
+		vTaskDelayUntil(&tiempo_ej_ant, PERIODO_LEDvida);
 	}
 }
 

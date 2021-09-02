@@ -9,6 +9,9 @@ source/ProMed.o source/ProMed.d: ../source/ProMed.c ../source/ProMed.h \
  D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/mpu_wrappers.h \
  D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/task.h \
  D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/list.h \
+ D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/semphr.h \
+ D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/queue.h \
+ D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/task.h \
  ../source/GPIObib.h \
  D:\Documentos\ HDD\GIT\VSG_Control\drivers/fsl_common.h \
  D:\Documentos\ HDD\GIT\VSG_Control\device/fsl_device_registers.h \
@@ -27,7 +30,8 @@ source/ProMed.o source/ProMed.d: ../source/ProMed.c ../source/ProMed.h \
  D:\Documentos\ HDD\GIT\VSG_Control\board/board.h \
  D:\Documentos\ HDD\GIT\VSG_Control\board/clock_config.h \
  D:\Documentos\ HDD\GIT\VSG_Control\drivers/fsl_clock.h \
- ../source/PWMbib.h D:\Documentos\ HDD\GIT\VSG_Control\drivers/fsl_pwm.h
+ ../source/ControlInteligente.h ../source/PWMbib.h \
+ D:\Documentos\ HDD\GIT\VSG_Control\drivers/fsl_pwm.h
 
 ../source/ProMed.h:
 
@@ -52,6 +56,12 @@ D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/mpu_wrappers
 D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/task.h:
 
 D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/list.h:
+
+D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/semphr.h:
+
+D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/queue.h:
+
+D:\Documentos\ HDD\GIT\VSG_Control\freertos\freertos_kernel\include/task.h:
 
 ../source/GPIObib.h:
 
@@ -88,6 +98,8 @@ D:\Documentos\ HDD\GIT\VSG_Control\board/board.h:
 D:\Documentos\ HDD\GIT\VSG_Control\board/clock_config.h:
 
 D:\Documentos\ HDD\GIT\VSG_Control\drivers/fsl_clock.h:
+
+../source/ControlInteligente.h:
 
 ../source/PWMbib.h:
 

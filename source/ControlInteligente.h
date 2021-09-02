@@ -12,16 +12,14 @@
 /*******************************************************************************
  * Librerías
  ******************************************************************************/
-#include "math.h"
-
 
 /*******************************************************************************
  * Definiciones
  ******************************************************************************/
 // Estructura de función de membresía
-// Para funciones tipo Triangular, el soporte es [a,c] y el núcleo es b sin importar
+// - Para funciones tipo Triangular, el soporte es [a,c] y el núcleo es b sin importar
 //   el valor de 'Lado'
-// Para funciones tipo 'Borde' el soporte es [a,+inf] y la transición ocurre en [a,b]
+// - Para funciones tipo 'Borde' el soporte es [a,+inf] y la transición ocurre en [a,b]
 //   si el lado es 'Derecho', o el soporte es [-inf,c] con transición en [b,c] si el
 //   lado es 'Izquierdo'
 enum Tipo {Triangular, Borde};
@@ -57,11 +55,8 @@ struct Coeficientes_3var{
 // Tipos de variable para consecuentes de reglas de 3x3 y 3x3x3
 typedef struct Coeficientes_2var coef_cons_3x3[9];
 typedef struct Coeficientes_3var coef_cons_3x3x3[27];
-// Tipos de variable para consecuentes de reglas
-//typedef float consecuentes_3x3[3][3];
-//typedef float consecuentes_3x3x3[3][3][3];
 // Estructura para acondicionamiento de salidas
-struct Salida_anfis{
+struct acondicionamiento_salidas{
     // y = max*tanh( x/escala ) + sesgo
     float max;
     float escala;
@@ -73,9 +68,12 @@ struct Salida_anfis{
 void Difusificar(const VariableLing_3, float, vardif_3);
 void Antecedentes_3x3(vardif_3, vardif_3, fdisparo_3x3);
 void Antecedentes_3x3x3(vardif_3, vardif_3, vardif_3, fdisparo_3x3x3);
-float Consecuentes_3x3(float, float, fdisparo_3x3, const coef_cons_3x3);//, consecuentes_3x3);
-float Consecuentes_3x3x3(float, float, float, fdisparo_3x3x3, const coef_cons_3x3x3);//, consecuentes_3x3x3);
+float Consecuentes_3x3(float, float, fdisparo_3x3, const coef_cons_3x3);
+float Consecuentes_3x3x3(float, float, float, fdisparo_3x3x3, const coef_cons_3x3x3);
 void ANFIS_3x3(float, float, const VariableLing_3, const VariableLing_3, const coef_cons_3x3*, int, float*);
 void ANFIS_3x3x3(float, float, float, const VariableLing_3, const VariableLing_3, const VariableLing_3, const coef_cons_3x3x3*, int, float*);
+void AcondicionaSalida(float*, const struct acondicionamiento_salidas*, int);
+float Tanh_aprx(float);
+
 
 #endif /* CONTROLINTELIGENTE_H_ */

@@ -42,9 +42,10 @@ void ManejadorIRQboton(void){
     GPIO_PortClearInterruptFlags(GPIOboton, 1U << PINboton);
 
     // Reestablece variables de estado y control y regresa a modo de sincronización
-    Reinicia_Control();
+    Suspende_Control();
     ConmutaLED();
 
+    // Barrera de sincronización
     SDK_ISR_EXIT_BARRIER;
 }
 

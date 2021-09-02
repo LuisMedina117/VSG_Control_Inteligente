@@ -1,7 +1,7 @@
 core_cm7.h:1902:22:__NVIC_EnableIRQ	16	static
 core_cm7.h:2032:22:__NVIC_SetPriority	16	static
 fsl_common.h:747:28:EnableIRQ	24	static
-FreeMasterbib.c:35:6:FreeMaster_Config	32	static
-FreeMasterbib.c:59:6:LPUART1_IRQHandler	8	static
-FreeMasterbib.c:68:1:FMSTR_TsaGetTable_tabla_variables	16	static
-FreeMasterbib.c:159:1:FMSTR_TsaGetTable	16	static
+FreeMasterbib.c:36:6:FreeMaster_Config	32	static
+FreeMasterbib.c:60:6:LPUART1_IRQHandler	8	static
+FreeMasterbib.c:69:1:FMSTR_TsaGetTable_tabla_variables	16	static
+FreeMasterbib.c:168:1:FMSTR_TsaGetTable	16	static

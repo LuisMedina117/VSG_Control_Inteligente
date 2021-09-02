@@ -17,7 +17,9 @@
 #include "ProMed.h"
 #include "FreeRTOS.h"
 #include "task.h"
+#include "semphr.h"
 #include "GPIObib.h"
+#include "ControlInteligente.h"
 
 /*******************************************************************************
  * Definiciones
@@ -79,9 +81,10 @@ struct VarProt{
 };
 
 // Secuencia de sincronización -------------
-#define TSINC 	2500	// Tiempo de sincronización [250ms] en muestras de 10kHz
-#define PLL_kp	0.35f	// Ganancia proporcional del PLL
-#define PLL_kih 1e-3f	// Ganancia integral del PLL
+#define TSINC 	500		// Tiempo de sincronización [50ms] en muestras de 10kHz
+#define PLL_kp	2.5f	// Ganancia proporcional del PLL
+#define PLL_kih 0.05f	// Ganancia integral del PLL
+#define PLL_Tf	0.8f	// Constante de filtrado de tensión
 
 // Control de corriente --------------------
 struct CI_VariablesControl{
@@ -90,11 +93,14 @@ struct CI_VariablesControl{
 	float aId;
 	float aIq;
 };
-//#define satM_VI	1.3f	// Ya no se usa, el límite lo impone la batería
-#define CI_kp	0.4340f		// kp = 0.4340
-#define CI_kih 	0.028935f	// ki = 289.35, h = 1e-4
-#define CI_htr 	0.066666f	// h/tr Cte. de tiempo de seguimiento tr = Ti = kp/ki, h=1e-4
+#define CI_kp	 0.4340f		// kp = 0.4340
+#define CI_kih 	 0.028935f	// ki = 289.35, h = 1e-4
+#define CI_htr 	 0.066666f	// h/tr Cte. de tiempo de seguimiento tr = Ti = kp/ki, h=1e-4
 #define param_lF 0.049087f	// Valor del inductor del filtro en pu
+#define Psc_T200 200U		// Tiempo máximo de sobrecarga de 200% (en 10^-2 segundos)
+#define Psc_T150 3000U		// Tiempo máximo de sobrecarga de 150% (en 10^-2 segundos)
+#define Psc_T120 60000U		// Tiempo máximo de sobrecarga de 120% (en 10^-2 segundos)
+#define Psc_Tret 500U		// Tiempo de retraso para recuperación (en 10^-2 segundos)
 
 // Control de tensión ----------------------
 struct CV_VariablesControl{
@@ -103,9 +109,9 @@ struct CV_VariablesControl{
 	float aId;
 	float aIq;
 };
-#define CV_kp	3.125f		// kp=0.125
-#define CV_kih	0.4315f		// ki=4315, h=1e-4
-#define CV_htr	0.3452f		// Cte. de tiempo de seguimiento tr = 10Ti = 10kp/ki, h=1e-4
+#define CV_kp	 3.125f		// kp=3.125
+#define CV_kih	 0.4315f	// ki=4315, h=1e-4
+#define CV_htr	 0.3452f	// Cte. de tiempo de seguimiento tr = 10Ti = 10kp/ki, h=1e-4
 #define param_cF 0.031269f	// Valor del capacitor del filtro en pu
 
 // -----------------------------------------------------------------------------
@@ -113,15 +119,14 @@ struct CV_VariablesControl{
 // Batería (BMS) // ------------------------------------------------------------
 // Variables de estado de la batería
 struct BAT_BMS{
-	//float icd;
-	float vcd;	// Esta variable es para ajustar el ciclo útil
-	float soc;	// Mejor solo usar SOC y proteger iFdq
+	float vcd;	// Tensión en terminales
+	float soc;	// Estado de carga
 };
 // -----------------------------------------------------------------------------
 
 // Generador síncrono virtual // -----------------------------------------------
-// Estado de operación (en sicnronización o emulando)
-enum ESTADO{Sincronizacion, Emulando};
+// Estado de operación
+enum ESTADO{Sincronizacion, Emulando, Espera};
 // Estructura de variables de estado
 struct VSG_VariablesEstado{
 	float w;		// Velocidad angular
@@ -139,6 +144,7 @@ struct VSG_Entradas{
 	float pref;		// Potencia activa de referencia
 	float qe;		// Potencia reactiva
 	float qref;		// Potencia reactiva de referencia
+	float qri;		// Potencia reactiva de referencia del c.i.
 	float wref;		// Velocidad angular de referencia
 	float vpcc;		// Tensión en el punto de interconexión
 	float H;		// Constante de inercia
@@ -156,21 +162,6 @@ struct FLTR_BESSEL2{
 	float u1;	// u[k-1]
 	float u2;	// u[k-2]
 };
-/*// Estructura de variables para filtro de potencia
-struct PQ_FLTR{
-	// Potencia pe filtrada
-	float pX;		// pf[k]
-	float pX_1;		// pf[k-1]
-	float pX_2;		// pf[k-2]
-	float pU_1;		// pe'[k-1]
-	float pU_2;		// pe'[k-2]
-	// Potencia qe filtrada
-	float qX;		// qf[k]
-	float qX_1;		// qf[k-1]
-	float qX_2;		// qf[k-2]
-	float qU_1;		// qe'[k-1]
-	float qU_2;		// qe'[k-2]
-};*/
 // Definición para FreeRTOS
 #define TsMG pdMS_TO_TICKS(5U) // Tiempo de muestreo del modelo (5ms)
 // Definiciones para lazo de control de potencia reactiva
@@ -185,9 +176,8 @@ struct PQ_FLTR{
 #define Vmin 	0.8f	// Voltaje mín. para Kpm [0.8]
 #define cs_xw	0.995f	// Coef. xw[k-1] [(1-h/tw)pu]
 #define ce_xw	0.005f	// Coef. ent. xw [(h/tw)pu]
-//#define max_xe	0.95*bateria.vcd	// xe_max depende de v_Bat
-#define min_xe	0.85f	// xe_min
-// Definiciones para filtro anti-aliasing
+#define min_xe	0.85f	// Valor mínimo Ea (ref. de lazo de tensión)
+// Definiciones para filtro anti-aliasing (Acondiciona para 200Hz)
 #define A1_FAA	1.9043769f	// Ts=100us
 #define A2_FAA	0.9073521f	// Ts=100us
 #define B_FAA	0.0007438f	// Ts=100us
@@ -203,9 +193,12 @@ struct PQ_FLTR{
  ******************************************************************************/
 void LazoCorriente(void);
 void LazoTension(void);
-void ModeloGenerador(void*);
 void Acondicionamiento(void);
-void Reinicia_Control(void);
+void ModeloGenerador(void*);
+void ControladorInteligente(void*);
+void ControlBajoNivel(void);
+void Suspende_Control(void);
 void Sincroniza(void);
+void ProteccionCorriente(void);
 
 #endif /* CONTROL_H_ */
