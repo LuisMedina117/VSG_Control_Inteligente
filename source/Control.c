@@ -593,6 +593,9 @@ void ProteccionCorriente(void){
 	if(cont_div > 100U){
 		cont_div = 0U;
 
+		// Calcula magnitud de corriente
+		var_prot.iFmag = sqrtf(var_dq.iFd*var_dq.iFd + var_dq.iFq*var_dq.iFq);
+
 		// Si la corriente supera la nominal, comienza conteo de sobrecarga
 		// y reinicia conteo de retraso para recuperación
 		if(var_prot.iFmag > 1.02f){ // Tolerancia de 2% de Inom
@@ -621,7 +624,6 @@ void ProteccionCorriente(void){
 			recuperacion = false;
 
 		// Curva de sobrecarga
-		var_prot.iFmag = sqrtf(var_dq.iFd*var_dq.iFd + var_dq.iFq*var_dq.iFq);
 		// Si está en periodo de recuperación, el límite es el nominal
 		if(recuperacion == true)
 			var_prot.lim_iF = 1.0f;
