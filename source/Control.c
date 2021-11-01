@@ -2,7 +2,7 @@
  *	Biblioteca de funciones de control para el inversor
  *	Versión para IMX RT1060
  *
- *  Modificado: 1 sep. 2021
+ *  Modificado: 31 oct. 2021
  *      Author: Luis Medina ;)
  */
 
@@ -74,8 +74,8 @@ struct VSG_Entradas vsg_en = {
 	.qri	=	0.0f,	// Potencia Q de ref. (c.i.), 0pu
 	.wref	=	1.0f,	// Velocidad angular de ref., 0pu
 	.vpcc	=	1.0f,	// Vpcc, 1pu
-	.H		=	6.0f,	// Constante de inercia, 6pu
-	.D		=	15.0f,	// Coef. de amortiguamiento, 15pu
+	.H		=	1.0f,	// Constante de inercia, 1pu
+	.D		=	40.0f,	// Coef. de amortiguamiento, 40pu
 	.kR		=	20.0f,	// Ganancia de estatismo, 20pu
 	.Sn		=	1.0f	// Potencia relativa del modelo 1.0
 };
@@ -88,8 +88,8 @@ struct FLTR_BESSEL2 iF_faa = {
 	.u1 = 0.0f,
 	.u2 = 0.0f
 };
-// Magnitud de tensión del inversor
-struct FLTR_BESSEL2 vI_faa = {
+// Ángulo de fase de la tensión en terminales
+struct FLTR_BESSEL2 de_faa = {
 	.y = 0.0f,
 	.y1 = 0.0f,
 	.y2 = 0.0f,
@@ -122,19 +122,18 @@ struct FLTR_BESSEL2 qe_faa = {
 };
 // Control Inteligente
 extern const VariableLing_3 vl_soc;
-extern const VariableLing_3 vl_wf;
-extern const VariableLing_3 vl_xe;
+extern const VariableLing_3 vl_xw;
 extern const VariableLing_3 vl_iF;
-extern const VariableLing_3 vl_vI;
-extern const VariableLing_3 vl_wd;
-extern const VariableLing_3 vl_Ta;
+extern const VariableLing_3 vl_wf;
 extern const VariableLing_3 vl_xp;
-extern const coef_cons_3x3 coef_pE[3];
-extern const coef_cons_3x3x3 coef_pP[1];
-extern const coef_cons_3x3x3 coef_pR[4];
-extern const struct acondicionamiento_salidas salidas_pE[3];
-extern const struct acondicionamiento_salidas salidas_pP[1];
-extern const struct acondicionamiento_salidas salidas_pR[4];
+extern const VariableLing_3 vl_delta;
+extern const VariableLing_3 vl_Ta;
+extern const coef_cons_3x3 coef_b1[2];
+extern const coef_cons_3x3 coef_b2[1];
+extern const coef_cons_3x3x3 coef_b3[3];
+extern const struct acondicionamiento_salidas salidas_b1[2];
+extern const struct acondicionamiento_salidas salidas_b2[1];
+extern const struct acondicionamiento_salidas salidas_b3[3];
 
 /*******************************************************************************
  * Código
@@ -284,16 +283,21 @@ void Acondicionamiento(void){
 	iF_faa.u2 = iF_faa.u1;
 	iF_faa.u1 = temp;
 
-	// Tensión del inversor (mag. relativa) --- vI' = vIr/vBat
-	temp = vIr.magnitud/32768.0f; //Este valor ya es vIr/vBat
-	vI_faa.y = A1_FAA*vI_faa.y1 -A2_FAA*vI_faa.y2 +B_FAA*( temp +2*vI_faa.u1 +vI_faa.u2);
-	vI_faa.y2 = vI_faa.y1;
-	vI_faa.y1 = vI_faa.y;
-	vI_faa.u2 = vI_faa.u1;
-	vI_faa.u1 = temp;
+	// Ángulo de la tensión en terminales condicionado --- delta' = atan2(vCq,vCd)*min{1,|vC|^2}
+	temp = var_dq.vCd*var_dq.vCd + var_dq.vCq*var_dq.vCq; // |vC|^2
+	if(temp<1.0){
+		temp = temp*atan2f(var_dq.vCq,var_dq.vCd); // delta' = delta*|vC|^2
+	} else {
+		temp = atan2f(var_dq.vCq,var_dq.vCd);	// delta' = delta
+	}
+	de_faa.y = A1_FAA*de_faa.y1 -A2_FAA*de_faa.y2 +B_FAA*( temp +2*de_faa.u1 +de_faa.u2);
+	de_faa.y2 = de_faa.y1;
+	de_faa.y1 = de_faa.y;
+	de_faa.u2 = de_faa.u1;
+	de_faa.u1 = temp;
 
 	// Tensión de salida --- vC = sqrt(vCd^2 + vCq^2)
-	temp = sqrtf(var_dq.vCd*var_dq.vCd +var_dq.vCq*var_dq.vCq);
+	temp = sqrtf(var_dq.vCd*var_dq.vCd + var_dq.vCq*var_dq.vCq);
 	vC_faa.y = A1_FAA*vC_faa.y1 -A2_FAA*vC_faa.y2 +B_FAA*( temp +2*vC_faa.u1 +vC_faa.u2);
 	vC_faa.y2 = vC_faa.y1;
 	vC_faa.y1 = vC_faa.y;
@@ -408,8 +412,8 @@ void ModeloGenerador(void* param){
 
 // -------------------- Tarea del controlador inteligente --------------------
 void ControladorInteligente(void* param){
-	float wd, Ta;
-    float politicaE[3], politicaP[1], politicaR[4];
+	float soc, xw, iF, wf, delta, Ta;
+	float politicaB1[2], politicaB2[1], politicaB3[3];
 	TickType_t tiempo_ej_ant;
 
 	// Inicializa tiempo de ejecución anterior
@@ -432,24 +436,29 @@ void ControladorInteligente(void* param){
     			// Ponte pin GPIO en alto (para medición de tiempo de ejecución)
 				GPIO_PinWrite(GPIOmed2, PINmed2, 1U);
 
-				// Política de Energía: [Pref, kR, xe] = f(soc,wf)
-				ANFIS_3x3(bateria.soc, vsg_ve.xw, vl_soc, vl_wf, coef_pE, 3, politicaE);
-				AcondicionaSalida(politicaE, salidas_pE, 3);
-				// Política de Potencia: [xp] = f(xe,iF,vI)
-				ANFIS_3x3x3(politicaE[2], iF_faa.y, vI_faa.y, vl_xe, vl_iF, vl_vI, coef_pP, 1, politicaP);
-				AcondicionaSalida(politicaP, salidas_pP, 1);
-				// Política de Respuesta Dinámica
-				wd = vsg_ve.w-vsg_ve.xw;
-				Ta = (vsg_ve.pm-vsg_en.pe)/vsg_ve.w;	// Ta en base nominal
-				ANFIS_3x3x3(wd, Ta, politicaP[0], vl_wd, vl_Ta, vl_xp, coef_pR, 4, politicaR);
-				AcondicionaSalida(politicaR, salidas_pR, 4);
+				// Transformación de variables
+				soc = bateria.soc-0.5f; 			// soc' = soc-0.5
+				xw = (vsg_ve.xw-1)*60*3;			// xw' = (xw-1)*60*3
+				iF = 1.0f - fabsf(iF_faa.y);		// iF' = 1.0 - |iF|/imax
+				wf = (vsg_ve.w-vsg_ve.xw)*50.0f;	// wf' = 50*wf
+				delta = de_faa.y/0.785398f;			// delta' = delta*min{1,|vC|[2}/(pi/4)
+				Ta = (vsg_ve.pm-vsg_en.pe)/vsg_ve.w;// Ta' = Ta
+
+				// Bloque 1: [Pref, kR] = f(soc,xw)
+				ANFIS_3x3(soc, xw, vl_soc, vl_xw, coef_b1, 2, politicaB1);
+				AcondicionaSalida(politicaB1, salidas_b1, 2);
+				// Bloque 2: [xp] = f(iF,wf)
+				ANFIS_3x3(iF,  wf, vl_iF,  vl_wf, coef_b2, 1, politicaB2);
+				AcondicionaSalida(politicaB2, salidas_b2, 1);
+				// Bloque 3: [H, D, Sb] = f(xp, delta, Ta)
+				ANFIS_3x3x3(politicaB2[0], delta, Ta, vl_xp, vl_delta, vl_Ta, coef_b3, 3, politicaB3);
+				AcondicionaSalida(politicaB3, salidas_b3, 3);
 				// Nuevos parámetros para el generador
-				vsg_en.pref = politicaE[0];
-				vsg_en.kR   = politicaE[1];
-				vsg_en.H    = politicaR[0];
-				vsg_en.D    = politicaR[1];
-				vsg_en.Sn   = politicaR[2];
-				vsg_en.qri  = politicaR[3];
+				vsg_en.pref = politicaB1[0];
+				vsg_en.kR   = politicaB1[1];
+				vsg_en.H    = politicaB3[0];
+				vsg_en.D    = politicaB3[1];
+				vsg_en.Sn   = politicaB3[2];
 
 				// Ponte pin GPIO en bajo (para medición de tiempo de ejecución)
 				GPIO_PinWrite(GPIOmed2, PINmed2, 0U);
@@ -516,11 +525,11 @@ void Suspende_Control(void){
 		iF_faa.y  = 0.0f;
 		iF_faa.u2 = 0.0f;
 		iF_faa.u1 = 0.0f;
-		vI_faa.y2 = 0.0f;
-		vI_faa.y1 = 0.0f;
-		vI_faa.y  = 0.0f;
-		vI_faa.u2 = 0.0f;
-		vI_faa.u1 = 0.0f;
+		de_faa.y2 = 0.0f;
+		de_faa.y1 = 0.0f;
+		de_faa.y  = 0.0f;
+		de_faa.u2 = 0.0f;
+		de_faa.u1 = 0.0f;
 		vC_faa.y2 = 0.0f;
 		vC_faa.y1 = 0.0f;
 		vC_faa.y  = 0.0f;
