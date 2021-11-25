@@ -97,7 +97,7 @@ FMSTR_TSA_RO_VAR(vref_vsg, FMSTR_TSA_USERTYPE(struct VectorRef))
 FMSTR_TSA_STRUCT(struct VectorSinc)
 FMSTR_TSA_MEMBER(struct VectorSinc, magnitud,	FMSTR_TSA_UINT16)
 FMSTR_TSA_MEMBER(struct VectorSinc, fase,		FMSTR_TSA_UINT16)
-FMSTR_TSA_RO_VAR(vIr, FMSTR_TSA_USERTYPE(struct VectorSinc))
+FMSTR_TSA_RW_VAR(vIr, FMSTR_TSA_USERTYPE(struct VectorSinc))
 
 // Estructura de variables en marco de ref. síncrono
 FMSTR_TSA_STRUCT(struct VarMarcoSincrono)
@@ -132,7 +132,7 @@ FMSTR_TSA_MEMBER(struct CV_VariablesControl, aIq,	FMSTR_TSA_FLOAT)
 FMSTR_TSA_RW_VAR(lazo_V, FMSTR_TSA_USERTYPE(struct CV_VariablesControl))
 
 // Estructura de variables de estado del VSG
-FMSTR_TSA_RO_VAR(vsg_ve, FMSTR_TSA_USERTYPE(struct VSG_VE))
+FMSTR_TSA_RW_VAR(vsg_ve, FMSTR_TSA_USERTYPE(struct VSG_VE))
 FMSTR_TSA_STRUCT(struct VSG_VariablesEstado)
 FMSTR_TSA_MEMBER(struct VSG_VariablesEstado, w, 		FMSTR_TSA_FLOAT)
 FMSTR_TSA_MEMBER(struct VSG_VariablesEstado, w_prev,	FMSTR_TSA_FLOAT)

@@ -81,11 +81,11 @@ int main(void) {
 	xTaskCreate(ModeloGenerador, "Modelo VSG", configMINIMAL_STACK_SIZE, NULL, PRIO_ModeloVSG, NULL);
 	xTaskCreate(ControladorInteligente, "Ctrl Inteligente", configMINIMAL_STACK_SIZE+100U, NULL, PRIO_CtrlIntel, NULL);
 
-
+/**/
 	if(vsg_ve.estado == Emulando){//#####################################################################################
 		xTaskCreate(TareaTemporal, "Inicio", configMINIMAL_STACK_SIZE, NULL, configMAX_PRIORITIES,  &Handle_TareaTemp);
 	}
-
+/**/
     // Inicia el SO
 	vTaskStartScheduler();
 

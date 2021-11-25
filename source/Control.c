@@ -56,14 +56,15 @@ struct CV_VariablesControl lazo_V = {
 };
 // Estructura de variables de estado del generador
 struct VSG_VariablesEstado vsg_ve = {
-	.w			=	1.0f,	// Velocidad angular inicial, 1pu
+	.w			=	0.9995f,//1.0f,	// Velocidad angular inicial, 1pu
 	.w_prev 	=	1.0f,
 	.xw 		=	1.0f,	// Velocidad angular filtrada inicial, 1pu
 	.xw_prev 	=	1.0f,
 	.pm 		=	0,		// Potencia mecánica inicial, 0pu
 	.pm_prev	=	0,
 	.xe			=	1.0f,	// Tensión inicial, 1pu
-	.estado = Emulando // Inicializa en modo de sincronización
+	.estado = Emulando
+	//.estado = Sincronizacion // Inicializa en modo de sincronización
 };
 // Estructura de entradas y parámetros del generador
 struct VSG_Entradas vsg_en = {
@@ -74,10 +75,10 @@ struct VSG_Entradas vsg_en = {
 	.qri	=	0.0f,	// Potencia Q de ref. (c.i.), 0pu
 	.wref	=	1.0f,	// Velocidad angular de ref., 0pu
 	.vpcc	=	1.0f,	// Vpcc, 1pu
-	.H		=	1.0f,	// Constante de inercia, 1pu
-	.D		=	40.0f,	// Coef. de amortiguamiento, 40pu
+	.H		=	3.0f,	// Constante de inercia, 3pu
+	.D		=	60.0f,	// Coef. de amortiguamiento, 40pu
 	.kR		=	20.0f,	// Ganancia de estatismo, 20pu
-	.Sn		=	1.0f	// Potencia relativa del modelo 1.0
+	.Sn		=	2.0f	// Potencia relativa del modelo 1.0
 };
 // Estructuras de variables con filtro anti-aliasing
 // Magnitud de corriente del inversor
@@ -161,7 +162,7 @@ void LazoCorriente(void){
 	vIqr = CI_kp*errorIq + lazo_I.aIq;
 	// Términos de prealimentación (feedforward) y desacoplamiento
 	vIqr += var_dq.vCq + var_dq.iFd*param_lF*vsg_ve.w;
-/*
+/**/
 	// Verifica saturación ---------------------------------------
 	temp = sqrtf(vIdr*vIdr + vIqr*vIqr);
 	if (temp >= bateria.vcd)
@@ -185,11 +186,15 @@ void LazoCorriente(void){
 
 	// Calcula ángulo de fase ------------------------------------
 	temp = atan2f(vIqr,vIdr)*572.9577f;
-	if (temp >= 300) // Le resta 30º para compensar que genera tensión de fase pero mide de línea
+	/*if (temp >= 300) // Le resta 30º para compensar que genera tensión de fase pero mide de línea
 		vIr.fase = temp-300.0f;
 	else
-		vIr.fase = temp+3300.0f;
-*/
+		vIr.fase = temp+3300.0f;*/
+	vIr.fase = temp;
+/**/
+	// Actualiza ciclo útil
+	ActualizaCU();
+
 	// Ponte pin GPIO en bajo (para medición de tiempo de ejecución)
 	//GPIO_PinWrite(GPIOmed1, PINmed1, 0U);
 }
@@ -218,7 +223,7 @@ void LazoTension(){
 	iFqr = CV_kp*errorVq + lazo_V.aIq;
 	// Términos de prealimentación (feedforward) y desacoplamiento
 	iFqr += var_dq.iGq + var_dq.vCd*param_cF*vsg_ve.w;
-/*
+/**/
 	// Verifica saturación ---------------------------------------
 	temp1 = sqrtf(iFdr*iFdr + iFqr*iFqr);
 	if (temp1 >= var_prot.lim_iF)
@@ -228,26 +233,10 @@ void LazoTension(){
 	// Reduce proporcionalmente las componentes
 	lazo_I.iFdr = iFdr*temp2/temp1;
 	lazo_I.iFqr = iFqr*temp2/temp1;
-*/
+/**/
 	// Actualiza acción integral con backtracking ----------------
 	lazo_V.aId = lazo_V.aId + CV_kih*errorVd + CV_htr*( lazo_I.iFdr - iFdr );
 	lazo_V.aIq = lazo_V.aIq + CV_kih*errorVq + CV_htr*( lazo_I.iFqr - iFqr );
-
-	/*// Cálculo y filtrado (sec-) de potencia (para modelo VSG)
-	temp1 = var_dq.vCd*var_dq.iFd+var_dq.vCq*var_dq.iFq;
-	pq_fltr.pX = Af_fltr2*pq_fltr.pX_1 -Bf_fltr2*pq_fltr.pX_2
-				+Cf_fltr2*(temp1+pq_fltr.pU_2) -Af_fltr2*pq_fltr.pU_1;
-	temp2 = var_dq.vCq*var_dq.iFd-var_dq.vCd*var_dq.iFq;
-	pq_fltr.qX = Af_fltr2*pq_fltr.qX_1 -Bf_fltr2*pq_fltr.qX_2
-			+Cf_fltr2*(temp2+pq_fltr.qU_2) -Af_fltr2*pq_fltr.qU_1;
-	pq_fltr.pX_2 = pq_fltr.pX_1;
-	pq_fltr.pX_1 = pq_fltr.pX;
-	pq_fltr.pU_2 = pq_fltr.pU_1;
-	pq_fltr.pU_1 = temp1;
-	pq_fltr.qX_2 = pq_fltr.qX_1;
-	pq_fltr.qX_1 = pq_fltr.qX;
-	pq_fltr.qU_2 = pq_fltr.qU_1;
-	pq_fltr.qU_1 = temp2;*/
 
 	// Pone pin GPIO en bajo (para medición de tiempo de ejecución)
 //	GPIO_PinWrite(GPIOmed2, PINmed2, 0U);
@@ -317,7 +306,6 @@ void ControlBajoNivel(void){
 	if(vsg_ve.estado == Emulando){
 		LazoTension();
 		LazoCorriente();
-		ActualizaCU();
 		Acondicionamiento();
 		ProteccionCorriente();
 	}
@@ -350,7 +338,7 @@ void ModeloGenerador(void* param){
 			// Td = D(w-wf)
 			temp2 = vsg_en.D*(vsg_ve.w_prev-vsg_ve.xw_prev);
 			// w = wprev + (Ta-Td)/(2/h*H)
-			//vsg_ve.w = vsg_ve.w_prev + (temp1-temp2)/(dos_h*vsg_en.H);
+			vsg_ve.w = vsg_ve.w_prev + (temp1-temp2)/(dos_h*vsg_en.H);
 
 		// Control de velocidad --------------------------
 			// errw = BM(wref-w)
@@ -453,6 +441,7 @@ void ControladorInteligente(void* param){
 				// Bloque 3: [H, D, Sb] = f(xp, delta, Ta)
 				ANFIS_3x3x3(politicaB2[0], delta, Ta, vl_xp, vl_delta, vl_Ta, coef_b3, 3, politicaB3);
 				AcondicionaSalida(politicaB3, salidas_b3, 3);
+
 				// Nuevos parámetros para el generador
 				vsg_en.pref = politicaB1[0];
 				vsg_en.kR   = politicaB1[1];
@@ -550,6 +539,9 @@ void Sincroniza(void){
 	float theta;
 	BaseType_t xHigherPriorityTaskWoken;
 
+	// Transforma las variables medidas al marco de referencia síncrono
+	calculaDQ();
+
 	// Cálculo de magnitud promedio del vector de tensión
 	e_in = (PLL_Tf*e_in) + (1.0f-PLL_Tf)*sqrtf(var_dq.vCd*var_dq.vCd+var_dq.vCq*var_dq.vCq);
 
@@ -560,7 +552,7 @@ void Sincroniza(void){
 
 	// Evalua si se cumple el lapso de sincronización
 	contador += 1;
-	if(contador >= TSINC){
+	if(contador >= TSINC*10){
 		// Inicializa frecuencia
 		vsg_ve.w = w_in;
 		vsg_ve.w_prev = w_in;
